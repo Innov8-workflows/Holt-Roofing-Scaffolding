@@ -1,0 +1,15 @@
+# Deploy only the files the live site actually serves.
+# Source images are base64-embedded in index.html; the original
+# multi-MB animation clips are build inputs, not runtime assets.
+/*
+
+!.gitignore
+!index.html
+!ba1.mp4
+!ba2.mp4
+!ba3.mp4
+!ba4.mp4
+!ba1-poster.jpg
+!ba2-poster.jpg
+!ba3-poster.jpg
+!ba4-poster.jpg
