@@ -808,6 +808,16 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   }, {passive:true});
 })();
 
+/* ---- hero videos: ensure muted autoplay across engines ---- */
+(function(){
+  var hv = document.querySelectorAll('.hero-slide video');
+  if(!hv.length) return;
+  function kick(){ hv.forEach(function(v){ v.muted = true; var p = v.play(); if(p && p.catch) p.catch(function(){}); }); }
+  kick();
+  /* resume if the page was opened in a background tab */
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden) kick(); });
+})();
+
 /* ---- before/after videos: silent autoplay on scroll, pause once past ---- */
 (function(){
   var vids = document.querySelectorAll('.case-frame video');
