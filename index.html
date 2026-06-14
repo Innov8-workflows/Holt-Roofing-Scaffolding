@@ -294,7 +294,14 @@
     .hero::after{background:linear-gradient(180deg,rgba(10,10,10,.5),rgba(10,10,10,.82))}
   }
   @media(max-width:460px){
-    .svc-grid,.gal-grid{grid-template-columns:1fr}
+    .gal-grid{grid-template-columns:1fr}
+    /* keep services 2-up in compact boxes so the list isn't a long scroll */
+    .svc-grid{grid-template-columns:1fr 1fr;gap:11px;margin-top:34px}
+    .svc-card{padding:18px 14px}
+    .svc-ic{width:40px;height:40px;border-radius:9px;margin-bottom:11px}
+    .svc-ic svg{width:21px;height:21px}
+    .svc-card h3{font-size:.98rem;margin-bottom:5px;line-height:1.2}
+    .svc-card p{font-size:.8rem;line-height:1.42}
     .call-pill .num{font-size:.86rem}
     .brand img{height:40px}
   }
