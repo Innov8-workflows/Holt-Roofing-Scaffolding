@@ -462,7 +462,7 @@
         <div class="case-media">
           <div class="case-frame">
             <span class="case-badge">Before &rarr; After</span>
-            <video src="ba1.mp4" poster="ba1-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Before and after: storm-damaged slate roof transformed with a full re-roof"></video>
+            <video src="ba1.mp4" poster="ba1-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Before and after: storm-damaged slate roof transformed with a full re-roof"></video>
           </div>
         </div>
         <div class="case-body">
@@ -478,7 +478,7 @@
         <div class="case-media">
           <div class="case-frame">
             <span class="case-badge">Before &rarr; After</span>
-            <video src="ba2.mp4" poster="ba2-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Before and after: conservatory converted to a solid tiled warm roof"></video>
+            <video src="ba2.mp4" poster="ba2-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Before and after: conservatory converted to a solid tiled warm roof"></video>
           </div>
         </div>
         <div class="case-body">
@@ -494,7 +494,7 @@
         <div class="case-media">
           <div class="case-frame">
             <span class="case-badge">Before &rarr; After</span>
-            <video src="ba3.mp4" poster="ba3-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Before and after: roof stripped back to the rafters and fully re-tiled"></video>
+            <video src="ba3.mp4" poster="ba3-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Before and after: roof stripped back to the rafters and fully re-tiled"></video>
           </div>
         </div>
         <div class="case-body">
@@ -510,7 +510,7 @@
         <div class="case-media">
           <div class="case-frame">
             <span class="case-badge">Before &rarr; After</span>
-            <video src="ba4.mp4" poster="ba4-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Before and after: full re-roof with new slate as part of a loft conversion"></video>
+            <video src="ba4.mp4" poster="ba4-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Before and after: full re-roof with new slate as part of a loft conversion"></video>
           </div>
         </div>
         <div class="case-body">
@@ -808,14 +808,12 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   }, {passive:true});
 })();
 
-/* ---- before/after videos: autoplay in view, pause off-screen ---- */
+/* ---- before/after videos: silent autoplay on scroll, pause once past ---- */
 (function(){
   var vids = document.querySelectorAll('.case-frame video');
   if(!vids.length) return;
-  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    vids.forEach(function(v){ v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
-    return;
-  }
+  /* never show native controls — muted loops that drive themselves */
+  vids.forEach(function(v){ v.muted = true; v.controls = false; v.removeAttribute('controls'); });
   if(!('IntersectionObserver' in window)){
     vids.forEach(function(v){ v.play().catch(function(){}); });
     return;
@@ -825,7 +823,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
       if(en.isIntersecting){ en.target.play().catch(function(){}); }
       else { en.target.pause(); }
     });
-  }, {threshold:.2});
+  }, {threshold:0, rootMargin:'200px 0px 200px 0px'});
   vids.forEach(function(v){ io.observe(v); });
 })();
 
