@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Holt Roofing Ltd | Experienced &amp; Trusted Roofers in Derbyshire</title>
-<meta name="description" content="Holt Roofing Ltd — experienced and trusted roofers in Derbyshire. New roofs, re-roofing, repairs, flat roofs, leadwork and chimney work. Free, no-obligation quotes.">
+<title>Holt Roofing Ltd | Experienced and Trusted Roofers in Derbyshire</title>
+<meta name="description" content="Holt Roofing Ltd, experienced and trusted roofers in Derbyshire. New roofs, re-roofing, repairs, flat roofs, leadwork and chimney work. Free, no-obligation quotes.">
 <link rel="canonical" href="https://holtroofingltd.co.uk/">
 <meta property="og:title" content="Holt Roofing Ltd | Roofers in Derbyshire">
 <meta property="og:description" content="Experienced and trusted roofing across Derbyshire. Free, no-obligation quotes.">
@@ -113,19 +113,32 @@
   .accred{background:var(--paper-2);border-bottom:1px solid var(--line)}
   .accred-row{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;padding:30px 0}
   .accred-label{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-  .accred-logo{width:118px;height:58px;border:1.5px dashed #cfcfcb;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-light);background:#fff;padding:6px}
+  .accred-logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:.92rem;color:var(--ink);transition:transform .2s}
+  .accred-logo:hover{transform:translateY(-2px)}
+  .accred-logo img{width:54px;height:54px;object-fit:contain}
 
   /* ===== SERVICES ===== */
   .services{background:var(--paper)}
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
-  .svc-card{border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;background:var(--paper);transition:border-color .2s,box-shadow .25s,transform .25s}
-  .svc-card:hover{border-color:#cfcfcb;box-shadow:0 16px 40px -22px rgba(0,0,0,.28);transform:translateY(-3px)}
-  .svc-ic{width:50px;height:50px;border-radius:10px;background:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-  .svc-ic svg{width:26px;height:26px;color:#fff}
-  .svc-card h3{font-size:1.22rem;font-weight:700;margin-bottom:8px}
-  .svc-card p{color:var(--muted);font-size:.95rem}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+  .svc-photo{position:relative;overflow:hidden;border-radius:16px;background:var(--ink);min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;box-shadow:0 16px 40px -26px rgba(0,0,0,.45);transition:transform .3s ease,box-shadow .3s ease}
+  .svc-photo .svc-bg{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;transform:scale(1.02);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .svc-photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(19,19,19,.04) 0%,rgba(19,19,19,.28) 34%,rgba(19,19,19,.9) 70%,rgba(10,10,10,.97) 100%)}
+  .svc-photo:hover{transform:translateY(-5px);box-shadow:0 26px 50px -24px rgba(0,0,0,.55)}
+  .svc-photo:hover .svc-bg{transform:scale(1.09)}
+  .svc-body{padding:22px 22px 20px}
+  .svc-ic{width:44px;height:44px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:13px;box-shadow:0 8px 22px rgba(0,0,0,.35)}
+  .svc-ic svg{width:22px;height:22px;color:var(--ink)}
+  .svc-photo h3{color:#fff;font-size:1.25rem;font-weight:700;margin-bottom:7px}
+  .svc-photo p{color:#d6d6d6;font-size:.9rem;line-height:1.55}
+  .svc-num{position:absolute;top:14px;right:14px;z-index:1;font-family:var(--display);font-weight:800;font-size:.78rem;letter-spacing:.08em;color:#fff;background:rgba(19,19,19,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:5px 11px}
+  .svc-go{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-family:var(--display);font-weight:700;font-size:.9rem;color:#fff}
+  .svc-go::after{content:"";position:absolute;inset:0;z-index:2}
+  .svc-go svg{width:16px;height:16px;transition:transform .25s ease}
+  .svc-photo:hover .svc-go svg{transform:translateX(5px)}
+  .svc-go:focus-visible{outline:none}
+  .svc-go:focus-visible::after{outline:3px solid #fff;outline-offset:-3px;border-radius:16px}
 
-  /* ===== BEFORE & AFTER ===== */
+  /* ===== BEFORE AND AFTER ===== */
   .ba{background:var(--paper-2)}
   .ba-cases{display:flex;flex-direction:column;gap:74px;margin-top:60px}
   .case{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
@@ -179,26 +192,31 @@
   .why-ic svg{width:22px;height:22px;color:var(--ink)}
   .why-list h3{font-size:1.1rem;font-weight:700;margin-bottom:3px}
   .why-list p{color:#bdbdbd;font-size:.92rem}
-  .why-photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 70px -30px rgba(0,0,0,.7)}
+  .why-photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;box-shadow:0 30px 70px -30px rgba(0,0,0,.7)}
   .why-photo img{width:100%;height:100%;object-fit:cover}
 
   /* ===== REVIEWS ===== */
   .reviews{background:var(--paper-2)}
-  .rev-head{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;color:var(--muted);font-size:.92rem}
-  .rev-head svg.g{width:22px;height:22px}
-  .rev-stage{position:relative;max-width:680px;margin:42px auto 0;overflow:hidden}
-  .rev-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}
-  .rev-card{min-width:100%;padding:0 6px}
-  .rev-inner{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px 34px 30px;box-shadow:0 16px 44px -28px rgba(0,0,0,.25)}
-  .rev-top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-  .rev-av{width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:1.1rem;flex:none}
-  .rev-name{font-family:var(--display);font-weight:700;font-size:1.02rem}
-  .rev-meta{font-size:.78rem;color:var(--muted)}
-  .rev-stars{display:flex;gap:2px;margin-bottom:12px}
-  .rev-stars svg{width:18px;height:18px;color:var(--gold)}
-  .rev-text{color:#333;font-size:1.02rem;line-height:1.65}
-  .rev-g{display:flex;align-items:center;gap:7px;margin-top:18px;font-size:.78rem;color:var(--muted)}
-  .rev-g svg{width:16px;height:16px}
+  .rev-score{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+  .rev-sc{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px 18px 12px 14px;box-shadow:0 12px 30px -24px rgba(0,0,0,.35);text-align:left;transition:transform .2s,border-color .2s}
+  .rev-sc:hover{transform:translateY(-2px);border-color:#cfcfcb}
+  .rev-sc img{width:42px;height:42px;object-fit:contain}
+  .rev-sc b{display:block;font-family:var(--display);font-size:1.6rem;font-weight:800;line-height:1}
+  .rev-sc b small{font-size:.9rem;color:var(--muted);font-weight:700}
+  .rev-sc span{display:block;font-size:.76rem;color:var(--muted);margin-top:4px}
+  .rev-view{overflow:hidden;margin-top:34px}
+  .rev-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+  .rev-cell{flex:0 0 33.3333%;padding:6px 7px 14px;display:flex}
+  .rev-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 22px 18px;box-shadow:0 16px 44px -28px rgba(0,0,0,.25);display:flex;flex-direction:column;gap:12px;width:100%}
+  .rev-top{display:flex;align-items:center;gap:12px}
+  .rev-av{width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line);flex:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .rev-av img{width:34px;height:34px;object-fit:contain}
+  .rev-who b{display:block;font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.2}
+  .rev-who span{font-size:.78rem;color:var(--muted)}
+  .rev-stars{display:flex;gap:2px}
+  .rev-stars svg{width:17px;height:17px;color:var(--gold)}
+  .rev-card p{color:#333;font-size:.93rem;line-height:1.62;flex:1}
+  .rev-foot{font-size:.74rem;color:var(--muted);border-top:1px solid var(--line);padding-top:11px}
   .rev-ctrls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:26px}
   .rev-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
   .rev-arrow:hover{border-color:var(--ink);background:var(--ink);color:#fff}
@@ -206,6 +224,22 @@
   .rev-dots{display:flex;gap:8px}
   .rev-dots button{width:9px;height:9px;border-radius:50%;border:0;background:#cfcfcb;cursor:pointer;transition:.25s}
   .rev-dots button.active{background:var(--ink);width:26px;border-radius:5px}
+
+  /* ===== ACCREDITATIONS ===== */
+  .acc{background:var(--ink);color:#fff;overflow:hidden}
+  .acc-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.18}
+  .acc .wrap{position:relative;z-index:1}
+  .acc .h-sec{color:#fff}
+  .acc .lead{color:#bdbdbd}
+  .acc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+  .acc-card{display:flex;flex-direction:column;align-items:center;text-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:32px 24px 26px;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);transition:transform .25s,border-color .25s,background .25s}
+  .acc-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.08)}
+  .acc-card img{width:108px;height:108px;object-fit:contain;margin-bottom:18px}
+  .acc-card h3{font-size:1.4rem;font-weight:800;margin-bottom:6px}
+  .acc-stat{font-family:var(--display);font-weight:700;color:var(--gold);font-size:.95rem;margin-bottom:12px}
+  .acc-card p{color:#c9c9c9;font-size:.93rem;margin-bottom:18px;flex:1}
+  .acc-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:700;font-size:.9rem;color:#fff;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
+  .acc-link svg{width:15px;height:15px}
 
   /* ===== ABOUT ===== */
   .about{background:var(--paper)}
@@ -265,7 +299,9 @@
   .foot-links a{font-size:.93rem;color:#bdbdbd;transition:color .2s}
   .foot-links a:hover{color:#fff}
   .foot-accred{display:flex;gap:14px;flex-wrap:wrap;align-items:center;border-top:1px solid #222;border-bottom:1px solid #222;padding:24px 0}
-  .foot-accred .al{width:96px;height:46px;border:1.5px dashed #3a3a3a;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:#6a6a6a;text-align:center;padding:4px}
+  .foot-accred .al{display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:#fff;padding:4px;transition:transform .2s}
+  .foot-accred .al:hover{transform:translateY(-2px)}
+  .foot-accred .al img{width:100%;height:100%;object-fit:contain}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:22px 0;font-size:.82rem;color:#777}
   .foot-bottom a{color:#999}
 
@@ -294,21 +330,38 @@
     .case--wide .case-frame{max-width:100%}
     .trust-row{grid-template-columns:1fr 1fr;gap:22px 14px}
     .pad{padding:62px 0}
-    .accred-row{gap:22px}
+    .accred-row{gap:14px 24px;padding:24px 0}
+    .accred-label{flex-basis:100%;text-align:center}
+    .accred-logo img{width:46px;height:46px}
     .foot-grid{grid-template-columns:1fr}
     .hero::after{background:linear-gradient(180deg,rgba(10,10,10,.58),rgba(10,10,10,.85))}
   }
   @media(max-width:460px){
     .gal-grid{grid-template-columns:1fr}
-    /* keep services 2-up in compact boxes so the list isn't a long scroll */
-    .svc-grid{grid-template-columns:1fr 1fr;gap:11px;margin-top:34px}
-    .svc-card{padding:18px 14px}
-    .svc-ic{width:40px;height:40px;border-radius:9px;margin-bottom:11px}
-    .svc-ic svg{width:21px;height:21px}
-    .svc-card h3{font-size:.98rem;margin-bottom:5px;line-height:1.2}
-    .svc-card p{font-size:.8rem;line-height:1.42}
     .call-pill .num{font-size:.86rem}
     .brand img{height:40px}
+  }
+  @media(max-width:1024px){
+    .rev-cell{flex-basis:50%}
+  }
+  @media(max-width:760px){
+    .acc-grid{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}
+  }
+  @media(max-width:680px){
+    .rev-cell{flex-basis:100%;padding:4px 3px 12px}
+    .rev-card{padding:20px 18px 16px}
+  }
+  @media(max-width:600px){
+    /* services stay 2-up as compact photo tiles; the sentence is dropped rather than clamped mid-word */
+    .svc-grid{gap:9px;margin-top:34px}
+    .svc-photo{min-height:210px;border-radius:12px}
+    .svc-body{padding:13px 12px}
+    .svc-ic{width:34px;height:34px;border-radius:9px;margin-bottom:8px}
+    .svc-ic svg{width:17px;height:17px}
+    .svc-photo h3{font-size:.95rem;line-height:1.18;margin-bottom:4px}
+    .svc-photo p{display:none}
+    .svc-num{top:9px;right:9px;font-size:.66rem;padding:3px 8px}
+    .svc-go{margin-top:8px;font-size:.8rem}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -356,8 +409,8 @@
   <div class="hero-slide"><video src="hero2.mp4" poster="hero2-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video></div>
   <div class="hero-content">
     <div class="wrap">
-      <h1 class="hero-title"><img class="hero-logo" src="logo-hero.png" alt="Holt Roofing Ltd — Experienced and Trusted Roofers in Derbyshire"></h1>
-      <p class="sub">New roofs, re-roofing, repairs, flat roofs and leadwork across Derbyshire — quality workmanship backed by years of hands-on experience.</p>
+      <h1 class="hero-title"><img class="hero-logo" src="logo-hero.png" alt="Holt Roofing Ltd, Experienced and Trusted Roofers in Derbyshire"></h1>
+      <p class="sub">New roofs, re-roofing, repairs, flat roofs and leadwork across Derbyshire, with quality workmanship backed by years of hands-on experience.</p>
       <div class="hero-actions">
         <a class="btn btn-light" href="#contact">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -378,7 +431,7 @@
   <div class="wrap trust-row">
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
-      <div><div class="t-main">Free Advice &amp; Quotes</div><div class="t-sub">No obligation</div></div>
+      <div><div class="t-main">Free Advice and Quotes</div><div class="t-sub">No obligation</div></div>
     </div>
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
@@ -386,21 +439,21 @@
     </div>
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      <div><div class="t-main">Checkatrade Approved</div><div class="t-sub">Vetted &amp; reviewed</div></div>
+      <div><div class="t-main">Rated 10/10 on Checkatrade</div><div class="t-sub">From 44 verified reviews</div></div>
     </div>
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <div><div class="t-main">Derbyshire Based</div><div class="t-sub">Local &amp; reliable</div></div>
+      <div><div class="t-main">Derbyshire Based</div><div class="t-sub">Local and reliable</div></div>
     </div>
   </div>
 </section>
 
-<!-- accreditation logos (placeholders) -->
-<section class="accred">
+<section class="accred" aria-label="Accreditations">
   <div class="wrap accred-row">
-    <span class="accred-label">Accredited &amp; Approved</span>
-    <div class="accred-logo">Checkatrade</div>
-    <div class="accred-logo">Trusted Trader</div>
+    <span class="accred-label">Vetted and approved by</span>
+    <a class="accred-logo" href="https://www.checkatrade.com/trades/holtroofingltd" target="_blank" rel="noopener"><img src="img/badge-checkatrade.webp" alt="" width="54" height="54">Checkatrade</a>
+    <a class="accred-logo" href="https://www.trustatrader.com/traders/holt-roofing-ltd-roofers-roofing-derby-north-east" target="_blank" rel="noopener"><img src="img/badge-trustatrader.webp" alt="" width="54" height="54">TrustATrader</a>
+    <a class="accred-logo" href="https://apps.derbyshire.gov.uk/applications/trusted-trader/profile.asp?tid=79947&amp;d=20&amp;p=DE556BS&amp;q=roofingtitle%20equals" target="_blank" rel="noopener"><img src="img/badge-trusted-trader.webp" alt="" width="54" height="54">Trusted Trader</a>
   </div>
 </section>
 
@@ -409,66 +462,84 @@
   <div class="wrap center">
     <span class="eyebrow">What We Do</span>
     <h2 class="h-sec">Our Roofing Services</h2>
-    <p class="lead">From a single slipped tile to a full re-roof or loft conversion, we cover every aspect of pitched and flat roofing for homes and businesses across Derbyshire.</p>
+    <p class="lead">From a single slipped tile to a full re-roof, we cover pitched and flat roofs for homes and businesses across Derbyshire.</p>
   </div>
   <div class="wrap">
     <div class="svc-grid">
-      <div class="svc-card">
-        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
-        <h3>New Roofs &amp; Re-Roofing</h3>
-        <p>Complete tiled and slate roof installations and full strip-and-recover work using quality, long-lasting materials.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.3L3 18v3h3l6.4-6.3a4 4 0 0 0 5.3-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div>
-        <h3>Roof &amp; Slate Repairs</h3>
-        <p>Slipped or broken tiles and slates, leaks, ridge and verge repairs — diagnosed properly and put right to stop further damage.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9.5 14.5 12 12 14.5 14.5"/></svg></div>
-        <h3>Loft Conversions</h3>
-        <p>Roofing works for loft conversions and dormer builds — from structural openings to a fully weathertight finish.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-4 9 4"/><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="14" x2="21" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div>
-        <h3>EPDM Flat &amp; Rubber Roofs</h3>
-        <p>Hard-wearing EPDM rubber and flat roof systems for extensions, dormers, garages and outbuildings.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l7-5 7 5v12"/><rect x="14" y="3" width="4" height="6"/><line x1="3" y1="21" x2="21" y2="21"/></svg></div>
-        <h3>Chimney Repairs &amp; Leadwork</h3>
-        <p>Chimney repairs, repointing and rebuilds, plus precision leadwork around valleys, flashings and abutments.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg></div>
-        <h3>Dormer Repairs &amp; Velux Windows</h3>
-        <p>Dormer repairs and Velux roof window supply and fit, bringing extra light into loft and roof spaces.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M5 7v6a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V7"/><path d="M9 16v4"/><path d="M15 16v4"/></svg></div>
-        <h3>Fascias, Soffits &amp; Guttering</h3>
-        <p>uPVC fascias, soffits and seamless guttering — protecting your roofline and keeping water away from the building.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="3" y1="16" x2="21" y2="16"/><line x1="9" y1="4" x2="9" y2="10"/><line x1="15" y1="10" x2="15" y2="16"/><line x1="9" y1="16" x2="9" y2="20"/></svg></div>
-        <h3>Cement Work &amp; Pointing</h3>
-        <p>Roof and ridge cement work, bedding and pointing to keep your roofline solid and weathertight.</p>
-      </div>
+      <article class="svc-photo">
+        <div class="svc-bg" style="background-image:url('img/svc1.webp')" role="img" aria-label="Newly tiled roof on a two-storey house, seen from the scaffold"></div>
+        <span class="svc-num">01</span>
+        <div class="svc-body">
+          <div class="svc-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
+          <h3>New Roofs and Re-Roofs</h3>
+          <p>Full tiled and slate roofs, stripped back to the rafters and rebuilt with new membrane, battens and tiles.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for new roofs and re-roofs">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="svc-photo">
+        <div class="svc-bg" style="background-image:url('img/svc2.webp')" role="img" aria-label="Holt roofer stripping a damaged section of roof back to the battens"></div>
+        <span class="svc-num">02</span>
+        <div class="svc-body">
+          <div class="svc-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.3L3 18v3h3l6.4-6.3a4 4 0 0 0 5.3-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div>
+          <h3>Roof Repairs</h3>
+          <p>Leaks, slipped tiles, storm and wind damage, ridges and verges, found quickly and put right properly.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for roof repairs">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="svc-photo">
+        <div class="svc-bg" style="background-image:url('img/svc3.webp')" role="img" aria-label="New EPDM rubber flat roof on a rear extension"></div>
+        <span class="svc-num">03</span>
+        <div class="svc-body">
+          <div class="svc-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-4 9 4"/><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="14" x2="21" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div>
+          <h3>Flat Roofing</h3>
+          <p>EPDM rubber and Lava 20 torch-on systems for extensions, dormers, garages and outbuildings.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for flat roofing">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="svc-photo">
+        <div class="svc-bg" style="background-image:url('img/svc4.webp')" role="img" aria-label="Brick chimney with new lead flashing on a re-covered roof"></div>
+        <span class="svc-num">04</span>
+        <div class="svc-body">
+          <div class="svc-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l7-5 7 5v12"/><rect x="14" y="3" width="4" height="6"/><line x1="3" y1="21" x2="21" y2="21"/></svg></div>
+          <h3>Chimneys and Leadwork</h3>
+          <p>Chimney repairs and repointing, plus leadwork around flashings, valleys and abutments.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for chimneys and leadwork">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="svc-photo">
+        <div class="svc-bg" style="background-image:url('img/svc5.webp')" role="img" aria-label="Concrete tiled roof finished with new fascia and guttering"></div>
+        <span class="svc-num">05</span>
+        <div class="svc-body">
+          <div class="svc-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M5 7v6a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V7"/><path d="M9 16v4"/><path d="M15 16v4"/></svg></div>
+          <h3>Fascias, Soffits and Guttering</h3>
+          <p>New roofline and gutters that carry water away cleanly and protect the walls below.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for fascias, soffits and guttering">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="svc-photo">
+        <div class="svc-bg" style="background-image:url('img/svc6.webp')" role="img" aria-label="Tile-hung dormer with a new white window on a re-tiled roof"></div>
+        <span class="svc-num">06</span>
+        <div class="svc-body">
+          <div class="svc-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg></div>
+          <h3>Dormers and Roof Windows</h3>
+          <p>Dormer roofs and cladding, plus skylights and roof windows that bring light into the loft.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for dormers and roof windows">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ===== BEFORE & AFTER ===== -->
+<!-- ===== BEFORE AND AFTER ===== -->
 <section class="ba pad" id="ba">
   <div class="wrap center">
     <span class="eyebrow">See The Difference</span>
-    <h2 class="h-sec">Before &amp; After</h2>
-    <p class="lead">Watch four recent projects go from tired to transformed &mdash; real roofs, real results, all completed here in Derbyshire.</p>
+    <h2 class="h-sec">Before and After</h2>
+    <p class="lead">Watch four recent projects go from tired to transformed. Real roofs, real results, all completed here in Derbyshire.</p>
   </div>
   <div class="wrap">
-    <!-- EDIT ME: match each project's label / heading / blurb / location to the real job details -->
     <div class="ba-cases">
 
-      <!-- Project 1 — media left -->
       <article class="case">
         <div class="case-media">
           <div class="case-frame">
@@ -484,7 +555,6 @@
         </div>
       </article>
 
-      <!-- Project 2 — landscape clip, media right -->
       <article class="case case--wide">
         <div class="case-media">
           <div class="case-frame">
@@ -495,12 +565,11 @@
         <div class="case-body">
           <span class="eyebrow">Conservatory Warm Roof</span>
           <h3>From cold add-on to year-round room</h3>
-          <p>This old polycarbonate conservatory roof was freezing in winter and baking in summer. We replaced it with a fully insulated, tiled warm roof &mdash; quiet, energy-efficient and finished with a smooth plastered ceiling inside. A wasted space became a bright room the family now uses all year round.</p>
+          <p>This old polycarbonate conservatory roof was freezing in winter and baking in summer. We replaced it with a fully insulated, tiled warm roof that is quiet, energy-efficient and finished with a smooth plastered ceiling inside. A wasted space became a bright room the family now uses all year round.</p>
           <span class="case-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Ripley</span>
         </div>
       </article>
 
-      <!-- Project 3 — media left -->
       <article class="case">
         <div class="case-media">
           <div class="case-frame">
@@ -511,12 +580,11 @@
         <div class="case-body">
           <span class="eyebrow">Full Re-Roof</span>
           <h3>Stripped back and built to last</h3>
-          <p>Taken right back to the rafters and rebuilt properly: new felt, treated battens and interlocking tiles, with fresh ridge, verge and leadwork throughout. The finish is clean and uniform &mdash; sealing the whole home against the worst of the Derbyshire weather.</p>
+          <p>Taken right back to the rafters and rebuilt properly: new felt, treated battens and interlocking tiles, with fresh ridge, verge and leadwork throughout. The finish is clean and uniform, sealing the whole home against the worst of the Derbyshire weather.</p>
           <span class="case-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Matlock</span>
         </div>
       </article>
 
-      <!-- Project 4 — media right -->
       <article class="case">
         <div class="case-media">
           <div class="case-frame">
@@ -527,7 +595,7 @@
         <div class="case-body">
           <span class="eyebrow">Loft Conversion Re-Roof</span>
           <h3>A new roofline for a bigger home</h3>
-          <p>As part of a full loft conversion we re-roofed the entire property &mdash; new structure, membrane and tiles bringing the whole roofline up to a modern, weatherproof standard, ready for the extra living space created below.</p>
+          <p>As part of a full loft conversion we re-roofed the entire property, with new structure, membrane and tiles bringing the whole roofline up to a modern, weatherproof standard, ready for the extra living space created below.</p>
           <span class="case-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Derby</span>
         </div>
       </article>
@@ -545,15 +613,15 @@
   </div>
   <div class="wrap">
     <div class="gal-grid" id="galGrid">
-      <div class="gal-item"><img data-img="hero3" alt="Slate re-roof with dormers, Derbyshire"><span class="gal-cap">Slate re-roof &amp; dormers</span></div>
+      <div class="gal-item"><img data-img="hero3" alt="Slate re-roof with dormers, Derbyshire"><span class="gal-cap">Slate re-roof and dormers</span></div>
       <div class="gal-item"><img data-img="g4" alt="Tiled re-roof with slate-hung dormers"><span class="gal-cap">Dormer re-roof</span></div>
-      <div class="gal-item"><img data-img="g2" alt="Hipped roof with chimney leadwork"><span class="gal-cap">Hipped roof &amp; leadwork</span></div>
+      <div class="gal-item"><img data-img="g2" alt="Hipped roof with chimney leadwork"><span class="gal-cap">Hipped roof and leadwork</span></div>
       <div class="gal-item"><img data-img="g1" alt="Aerial view of tiled roof with in-roof solar panels"><span class="gal-cap">Tiled roof with in-roof solar</span></div>
       <div class="gal-item"><img data-img="g3" alt="New clay tiled hipped roof with ridge"><span class="gal-cap">New clay tiled roof</span></div>
       <div class="gal-item"><img data-img="hero2" alt="Red tiled bungalow re-roof"><span class="gal-cap">Bungalow re-roof</span></div>
       <div class="gal-item"><img data-img="g6" alt="Tiled re-roof on a large property"><span class="gal-cap">Tiled re-roof</span></div>
       <div class="gal-item"><img data-img="g5" alt="EPDM flat rubber roof installation"><span class="gal-cap">EPDM flat rubber roof</span></div>
-      <div class="gal-item"><img data-img="hero1" alt="New tiled roof with roof windows"><span class="gal-cap">Tiled roof &amp; roof windows</span></div>
+      <div class="gal-item"><img data-img="hero1" alt="New tiled roof with roof windows"><span class="gal-cap">Tiled roof and roof windows</span></div>
     </div>
   </div>
 </section>
@@ -563,11 +631,11 @@
   <div class="wrap why-grid">
     <div>
       <span class="eyebrow on-dark">Why Holt Roofing</span>
-      <h2 class="h-sec">Trusted Roofers Who Turn Up &amp; Do It Right</h2>
+      <h2 class="h-sec">Trusted Roofers Who Turn Up and Do It Right</h2>
       <ul class="why-list">
         <li>
           <span class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <div><h3>Experienced &amp; Trusted</h3><p>Years of hands-on roofing experience on jobs of every size, with a reputation built on referrals.</p></div>
+          <div><h3>Experienced and Trusted</h3><p>Years of hands-on roofing experience on jobs of every size, with a reputation built on referrals.</p></div>
         </li>
         <li>
           <span class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
@@ -575,15 +643,15 @@
         </li>
         <li>
           <span class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
-          <div><h3>Honest, Upfront Pricing</h3><p>Clear, no-obligation quotes with no hidden extras — you know exactly where you stand.</p></div>
+          <div><h3>Honest, Upfront Pricing</h3><p>Clear, no-obligation quotes with no hidden extras, so you know exactly where you stand.</p></div>
         </li>
         <li>
           <span class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <div><h3>Local to Derbyshire</h3><p>A local, family-run feel — quick to respond and easy to get hold of when you need us.</p></div>
+          <div><h3>Local to Derbyshire</h3><p>A local, family-run feel, quick to respond and easy to get hold of when you need us.</p></div>
         </li>
       </ul>
     </div>
-    <div class="why-photo"><img data-img="g2" alt="Quality slate roofing and leadwork by Holt Roofing"></div>
+    <div class="why-photo"><img src="img/why-van.webp" alt="Holt Roofing Ltd van parked outside a house under scaffold for a re-roof" width="960" height="720" loading="lazy"></div>
   </div>
 </section>
 
@@ -592,18 +660,54 @@
   <div class="wrap center">
     <span class="eyebrow">Reviews</span>
     <h2 class="h-sec">What Our Customers Say</h2>
-    <div class="rev-head">
-      <svg class="g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg>
-      Rated by customers on Google
+    <p class="lead">Real reviews from verified customers across Derbyshire, word for word.</p>
+    <div class="rev-score">
+      <a class="rev-sc" href="https://www.checkatrade.com/trades/holtroofingltd/reviews" target="_blank" rel="noopener"><img src="img/badge-checkatrade.webp" alt="" width="42" height="42"><div><b>10<small>/10</small></b><span>44 reviews on Checkatrade</span></div></a>
+      <a class="rev-sc" href="https://www.trustatrader.com/traders/holt-roofing-ltd-roofers-roofing-derby-north-east" target="_blank" rel="noopener"><img src="img/badge-trustatrader.webp" alt="" width="42" height="42"><div><b>4.92<small>/5</small></b><span>24 reviews on TrustATrader</span></div></a>
     </div>
   </div>
-  <div class="rev-stage">
-    <div class="rev-track" id="revTrack"></div>
+  <div class="wrap">
+    <div class="rev-view" id="revView"><div class="rev-track" id="revTrack"></div></div>
+    <div class="rev-ctrls">
+      <button class="rev-arrow" id="revPrev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="rev-dots" id="revDots"></div>
+      <button class="rev-arrow" id="revNext" aria-label="Next reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
   </div>
-  <div class="rev-ctrls">
-    <button class="rev-arrow" id="revPrev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-    <div class="rev-dots" id="revDots"></div>
-    <button class="rev-arrow" id="revNext" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+</section>
+
+<!-- ===== ACCREDITATIONS ===== -->
+<section class="acc pad" id="accreditations">
+  <div class="acc-bg" data-bg="hero3" role="img" aria-label="Slate re-roof with dormers in Derbyshire"></div>
+  <div class="wrap center">
+    <span class="eyebrow on-dark">Accreditations</span>
+    <h2 class="h-sec">Checked, Vetted and Recommended</h2>
+    <p class="lead">Each badge links to our live profile, so you can read the reviews for yourself.</p>
+  </div>
+  <div class="wrap">
+    <div class="acc-grid">
+      <a class="acc-card" href="https://www.checkatrade.com/trades/holtroofingltd" target="_blank" rel="noopener">
+        <img src="img/badge-checkatrade.webp" alt="Checkatrade logo" width="108" height="108" loading="lazy">
+        <h3>Checkatrade</h3>
+        <div class="acc-stat">10/10 from 44 reviews</div>
+        <p>Checkatrade members since January 2024. Every review comes from a verified customer, and all 44 are on our profile.</p>
+        <span class="acc-link">View our profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+      </a>
+      <a class="acc-card" href="https://www.trustatrader.com/traders/holt-roofing-ltd-roofers-roofing-derby-north-east" target="_blank" rel="noopener">
+        <img src="img/badge-trustatrader.webp" alt="TrustATrader logo" width="108" height="108" loading="lazy">
+        <h3>TrustATrader</h3>
+        <div class="acc-stat">4.92 out of 5 from 24 reviews</div>
+        <p>Checked and approved by TrustATrader before being listed, under membership number TT28123.</p>
+        <span class="acc-link">View our profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+      </a>
+      <a class="acc-card" href="https://apps.derbyshire.gov.uk/applications/trusted-trader/profile.asp?tid=79947&amp;d=20&amp;p=DE556BS&amp;q=roofingtitle%20equals" target="_blank" rel="noopener">
+        <img src="img/badge-trusted-trader.webp" alt="Derbyshire County Council Trusted Trader logo" width="108" height="108" loading="lazy">
+        <h3>Trusted Trader</h3>
+        <div class="acc-stat">Derbyshire County Council</div>
+        <p>Listed on the council's own Trusted Trader scheme since May 2025, which helps local residents find reputable tradespeople.</p>
+        <span class="acc-link">View our profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -615,7 +719,7 @@
       <span class="eyebrow">About Us</span>
       <h2 class="h-sec" style="margin-bottom:18px">The Team Behind Holt Roofing</h2>
       <p>Holt Roofing Ltd is a Derbyshire-based roofing company built on a simple idea: do the job properly, treat people fairly, and stand behind the work. From small repairs to full re-roofs and loft conversions, every job gets the same care and attention to detail.</p>
-      <p>We pride ourselves on being experienced and trusted — turning up when we say we will, keeping you informed, and leaving your property clean and tidy. With free advice, free quotes and a 24-hour emergency call-out, help is never far away.</p>
+      <p>We pride ourselves on being experienced and trusted. We turn up when we say we will, keep you informed and leave your property clean and tidy. With free advice, free quotes and a 24-hour emergency call-out, help is never far away.</p>
       <div class="sig">Josh Holt<br><small>Owner, Holt Roofing Ltd</small></div>
     </div>
   </div>
@@ -639,7 +743,7 @@
         </li>
         <li>
           <span class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <div><div class="lbl">Area covered</div><span class="val">Derbyshire &amp; surrounding areas</span></div>
+          <div><div class="lbl">Area covered</div><span class="val">Derbyshire and surrounding areas</span></div>
         </li>
       </ul>
       <div class="ci-socials">
@@ -659,7 +763,7 @@
           <option>Roof repair</option>
           <option>Flat roofing</option>
           <option>Chimney / Leadwork</option>
-          <option>Fascias, soffits &amp; guttering</option>
+          <option>Fascias, soffits and guttering</option>
           <option>Storm / Emergency repair</option>
           <option>Something else</option>
         </select>
@@ -671,7 +775,7 @@
       </button>
       <p class="form-note">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6 9 17l-5-5"/></svg>
-        No spam — your details only go to Holt Roofing.
+        No spam. Your details only go to Holt Roofing.
       </p>
     </div>
   </div>
@@ -681,13 +785,13 @@
 <section class="final-cta" data-bg="hero2">
   <div class="wrap">
     <h2>Need a Roofer You Can Rely On?</h2>
-    <p>Get a free, no-obligation quote from an experienced, trusted local team. Call today or send a quick message — we're happy to help.</p>
+    <p>Get a free, no-obligation quote from an experienced, trusted local team. Call today or send a quick message. We're happy to help.</p>
     <div class="final-actions">
       <a class="btn btn-light" href="tel:+447908961324">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Call 07908 961324
       </a>
-      <a class="btn btn-wa" href="https://wa.me/447908961324?text=Hi%20Holt%20Roofing%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">
+      <a class="btn btn-wa" href="https://wa.me/447908961324?text=Hi%20Josh%2C%20I%20found%20you%20on%20your%20website%20and%20would%20like%20a%20free%20quote." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M12 2a10 10 0 0 0-8.58 15.13L2 22l4.98-1.31A10 10 0 1 0 12 2zm0 18.2a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.02-.2-.31A8.2 8.2 0 1 1 12 20.2z"/></svg>
         WhatsApp Us
       </a>
@@ -701,7 +805,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <img data-img="logo" alt="Holt Roofing Ltd">
-        <p>Experienced and trusted roofing services across Derbyshire — new roofs, repairs, flat roofing, chimney work and more.</p>
+        <p>Experienced and trusted roofing services across Derbyshire, covering new roofs, repairs, flat roofing, chimney work and more.</p>
         <div class="foot-soc">
           <a href="https://www.instagram.com/holtroofing_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           <a href="https://www.facebook.com/profile.php?id=100063897347139" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
@@ -722,13 +826,13 @@
         <ul class="foot-links">
           <li><a href="tel:+447908961324">07908 961324</a></li>
           <li><a href="mailto:holtroofingwr@gmail.com">holtroofingwr@gmail.com</a></li>
-          <li>Derbyshire &amp; surrounding areas</li>
+          <li>Derbyshire and surrounding areas</li>
         </ul>
       </div>
     </div>
     <div class="foot-accred">
       <span style="font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#888;margin-right:8px">Accreditations</span>
-      <div class="al">Checkatrade</div><div class="al">Trusted Trader</div>
+      <a class="al" href="https://www.checkatrade.com/trades/holtroofingltd" target="_blank" rel="noopener" aria-label="Holt Roofing Ltd on Checkatrade"><img src="img/badge-checkatrade.webp" alt="" width="46" height="46" loading="lazy"></a><a class="al" href="https://www.trustatrader.com/traders/holt-roofing-ltd-roofers-roofing-derby-north-east" target="_blank" rel="noopener" aria-label="Holt Roofing Ltd on TrustATrader"><img src="img/badge-trustatrader.webp" alt="" width="46" height="46" loading="lazy"></a><a class="al" href="https://apps.derbyshire.gov.uk/applications/trusted-trader/profile.asp?tid=79947&amp;d=20&amp;p=DE556BS&amp;q=roofingtitle%20equals" target="_blank" rel="noopener" aria-label="Holt Roofing Ltd on Derbyshire County Council Trusted Trader"><img src="img/badge-trusted-trader.webp" alt="" width="46" height="46" loading="lazy"></a>
     </div>
     <div class="foot-bottom">
       <span>&copy; <span id="yr"></span> Holt Roofing Ltd. All rights reserved.</span>
@@ -738,7 +842,7 @@
 </footer>
 
 <!-- floating whatsapp -->
-<a class="wa-float" href="https://wa.me/447908961324?text=Hi%20Holt%20Roofing%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+<a class="wa-float" href="https://wa.me/447908961324?text=Hi%20Josh%2C%20I%20found%20you%20on%20your%20website%20and%20would%20like%20a%20free%20quote." target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M12 2a10 10 0 0 0-8.58 15.13L2 22l4.98-1.31A10 10 0 1 0 12 2zm0 18.2a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.02-.2-.31A8.2 8.2 0 1 1 12 20.2z"/></svg>
   <span class="wa-label">Chat on WhatsApp</span>
 </a>
@@ -833,7 +937,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 (function(){
   var vids = document.querySelectorAll('.case-frame video');
   if(!vids.length) return;
-  /* never show native controls — muted loops that drive themselves */
+  /* never show native controls: muted loops that drive themselves */
   vids.forEach(function(v){ v.muted = true; v.controls = false; v.removeAttribute('controls'); });
   if(!('IntersectionObserver' in window)){
     vids.forEach(function(v){ v.play().catch(function(){}); });
@@ -848,48 +952,108 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   vids.forEach(function(v){ io.observe(v); });
 })();
 
-/* ---- reviews carousel ---- */
+/* ---- reviews carousel: three per view on desktop, two on tablet, one on phones ---- */
 (function(){
-  /* PLACEHOLDER reviews — swap for real Google review text/names */
+  /* verbatim from Holt Roofing Ltd's public Checkatrade profile, read 15 Oct 2026 */
   var reviews = [
-    {n:'Sarah M.', t:'Holt Roofing replaced our roof and we could not be happier. Tidy, professional and great value. Highly recommend to anyone in the area.', d:'2 weeks ago'},
-    {n:'David R.', t:'Came out quickly after some storm damage, sorted the leak the same day and gave honest advice. Proper tradesmen — would use again.', d:'1 month ago'},
-    {n:'Emma T.', t:'From the quote to finishing the job they kept us informed the whole way. The new roof looks fantastic and the price was very fair.', d:'1 month ago'},
-    {n:'Mark H.', t:'Excellent work on our chimney and leadwork. Turned up on time, cleaned up after themselves and the finish is spot on.', d:'2 months ago'},
-    {n:'Joanne P.', t:'Really pleased with our re-roof. Friendly, reliable and clearly take pride in their work. Thank you Holt Roofing!', d:'3 months ago'}
+    {
+      "h": "Excellent",
+      "w": "Ripley, DE5",
+      "d": "May 2026",
+      "job": "Bay window roof",
+      "t": "Arrived on the day and time as promised. Renewed roof of Bay window and at a very competitive price. Lovely guys. Pleasant and very respectful, very reassuring for older generation like me. Highly recommend. I would definitely use them again. Thank you Sandy"
+    },
+    {
+      "h": "Highly recommend",
+      "w": "Heanor, DE75",
+      "d": "November 2025",
+      "job": "Roofing repairs",
+      "t": "Fantastic work from Josh and team at Holt. Roofing, quick to repair leak and then roof end caps fitted, top quality. Honestly can’t give enough praise. All cleaned up after, highly recommend."
+    },
+    {
+      "h": "Professional and reliable",
+      "w": "Derby, DE22",
+      "d": "October 2025",
+      "job": "Flat roofing",
+      "t": "This is a very reliable and trustworthy company. Josh arrives when he says he will, explains the job without being patronising, provides a fair and prompt quote, his team work efficiently and update photos are provided throughout. All the work was done on time and a full clear up afterwards was done. Insulation and flat roof completed with minimal fuss. A throughly professional experience. I'll be keeping this number for future roofing repairs and recommendations."
+    },
+    {
+      "h": "Removed and replaced old ridge tiles with clip system.",
+      "w": "Long Eaton, NG10",
+      "d": "April 2025",
+      "job": "Dry ridge",
+      "t": "Josh really knows his stuff and provided a quality job at a competitive price. Job completed cleanly, safely and above expectations as Josh replaced some broken tiles which he noticed at no extra charge."
+    },
+    {
+      "h": "Repairs to the leading of the chimney and roof",
+      "w": "Ripley, DE5",
+      "d": "April 2025",
+      "job": "Leadwork repair",
+      "t": "Great experience from start to finish. Josh was a lovely guy to deal with. Works were completed as agreed and in a timely manner. Thank you. I would recommend."
+    },
+    {
+      "h": "Conservatory dwarf wall repointing.",
+      "w": "Long Eaton, NG10",
+      "d": "April 2025",
+      "job": "Repointing",
+      "t": "After having work completed last year and as I was extremely pleased and impressed with the service provided by Josh at Holt roofing. I contracted Josh to carry out this new job and yet again completed very professional."
+    }
   ];
-  var track = document.getElementById('revTrack');
-  var dotsWrap = document.getElementById('revDots');
-  function stars(){ var s=''; for(var k=0;k<5;k++){ s += '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8.5 22 9.3 17 14 18.2 21 12 17.6 5.8 21 7 14 2 9.3 9 8.5 12 2"/></svg>'; } return s; }
-  reviews.forEach(function(r, idx){
-    var card = document.createElement('div');
-    card.className = 'rev-card';
-    card.innerHTML = '<div class="rev-inner"><div class="rev-top"><div class="rev-av">'+r.n.charAt(0)+'</div><div><div class="rev-name">'+r.n+'</div><div class="rev-meta">'+r.d+'</div></div></div><div class="rev-stars">'+stars()+'</div><div class="rev-text">'+r.t+'</div><div class="rev-g"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg>Posted on Google</div></div>';
-    track.appendChild(card);
-    var d = document.createElement('button');
-    d.setAttribute('aria-label','Review '+(idx+1));
-    if(idx===0) d.classList.add('active');
-    d.addEventListener('click', function(){ go(idx); reset(); });
-    dotsWrap.appendChild(d);
+  var STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15 8.5 22 9.3 17 14 18.2 21 12 17.6 5.8 21 7 14 2 9.3 9 8.5 12 2"/></svg>';
+  var track = document.getElementById('revTrack'), dotsWrap = document.getElementById('revDots');
+  function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  reviews.forEach(function(r){
+    var cell = document.createElement('div');
+    cell.className = 'rev-cell';
+    cell.innerHTML =
+      '<article class="rev-card">' +
+        '<div class="rev-top"><div class="rev-av"><img src="img/badge-checkatrade.webp" alt="" width="34" height="34"></div>' +
+        '<div class="rev-who"><b>' + esc(r.h) + '</b><span>' + esc(r.job) + ', ' + esc(r.w) + '</span></div></div>' +
+        '<div class="rev-stars" role="img" aria-label="Scored 10 out of 10">' + STAR + STAR + STAR + STAR + STAR + '</div>' +
+        '<p>' + esc(r.t) + '</p>' +
+        '<div class="rev-foot">Verified Checkatrade review, ' + r.d + '</div>' +
+      '</article>';
+    track.appendChild(cell);
   });
-  var dots = dotsWrap.querySelectorAll('button');
-  var cur = 0, timer;
-  function go(n){
-    cur = (n + reviews.length) % reviews.length;
-    track.style.transform = 'translateX(-' + (cur*100) + '%)';
-    dots.forEach(function(d,k){ d.classList.toggle('active', k===cur); });
+  function perView(){ return window.innerWidth <= 680 ? 1 : (window.innerWidth <= 1024 ? 2 : 3); }
+  var pv = perView(), page = 0, timer;
+  function pages(){ return Math.max(1, Math.ceil(reviews.length / pv)); }
+  function buildDots(){
+    dotsWrap.innerHTML = '';
+    for(var i = 0; i < pages(); i++){
+      (function(i){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Reviews page ' + (i+1));
+        b.addEventListener('click', function(){ go(i); reset(); });
+        dotsWrap.appendChild(b);
+      })(i);
+    }
   }
-  function reset(){ clearInterval(timer); timer = setInterval(function(){ go(cur+1); }, 4800); }
-  document.getElementById('revPrev').addEventListener('click', function(){ go(cur-1); reset(); });
-  document.getElementById('revNext').addEventListener('click', function(){ go(cur+1); reset(); });
-  reset();
+  function go(n){
+    var pc = pages();
+    page = (n + pc) % pc;
+    track.style.transform = 'translateX(-' + (page*100) + '%)';
+    dotsWrap.querySelectorAll('button').forEach(function(b,k){ b.classList.toggle('active', k===page); });
+  }
+  function reset(){ clearInterval(timer); timer = setInterval(function(){ go(page+1); }, 6500); }
+  buildDots(); go(0); reset();
+  var view = document.getElementById('revView');
+  view.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  view.addEventListener('mouseleave', reset);
+  document.getElementById('revPrev').addEventListener('click', function(){ go(page-1); reset(); });
+  document.getElementById('revNext').addEventListener('click', function(){ go(page+1); reset(); });
   /* swipe */
-  var stage = document.querySelector('.rev-stage'), sx = 0;
-  stage.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
-  stage.addEventListener('touchend', function(e){
-    var dx = e.changedTouches[0].clientX - sx;
-    if(Math.abs(dx) > 45){ dx < 0 ? go(cur+1) : go(cur-1); reset(); }
+  var sx = 0, sy = 0;
+  view.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
+  view.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    if(Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)){ go(page + (dx < 0 ? 1 : -1)); reset(); }
   }, {passive:true});
+  window.addEventListener('resize', function(){
+    var n = perView();
+    if(n !== pv){ pv = n; buildDots(); go(0); reset(); }
+  });
 })();
 
 /* ---- gallery lightbox ---- */
@@ -922,7 +1086,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     var phone = document.getElementById('cf-phone').value.trim();
     var service = document.getElementById('cf-service').value;
     var msg = document.getElementById('cf-msg').value.trim();
-    var lines = ['Hi Holt Roofing, I\'d like a free quote.'];
+    var lines = ['Hi Josh, I found you on your website and would like a free quote.'];
     if(name) lines.push('Name: ' + name);
     if(phone) lines.push('Phone: ' + phone);
     if(service) lines.push('Service: ' + service);
