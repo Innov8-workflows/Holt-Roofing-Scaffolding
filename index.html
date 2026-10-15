@@ -155,6 +155,19 @@
   .case--wide .case-frame{max-width:560px;aspect-ratio:4/3}
   .case:nth-child(even) .case-media{order:2;justify-content:flex-end}
   .case:nth-child(even) .case-frame{transform:rotate(1.6deg)}
+  /* before and after drag slider */
+  .case .ba-slider,.case:hover .ba-slider{transform:none;cursor:ew-resize;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+  .ba-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .ba-before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+  .ba-tag{position:absolute;top:14px;z-index:2;font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.62);padding:6px 12px;border-radius:999px;pointer-events:none}
+  .ba-tag-b{left:14px}
+  .ba-tag-a{right:14px}
+  .ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;background:#fff;z-index:3;pointer-events:none;box-shadow:0 0 12px rgba(0,0,0,.35)}
+  .ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+  .ba-knob svg{width:16px;height:16px;margin:0 -2px}
+  .ba-range{position:absolute;left:0;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none}
+  .ba-slider:has(.ba-range:focus-visible) .ba-knob{outline:3px solid var(--gold);outline-offset:2px}
+  .ba-hint{font-size:.88rem!important;color:var(--muted);font-style:italic}
 
 
   /* ===== GALLERY ===== */
@@ -467,7 +480,7 @@
   <div class="wrap">
     <div class="svc-grid">
       <article class="svc-photo">
-        <div class="svc-bg" style="background-image:url('img/svc1.webp')" role="img" aria-label="Newly tiled roof on a two-storey house, seen from the scaffold"></div>
+        <div class="svc-bg" style="background-image:url('img/svc1.webp')" role="img" aria-label="Bungalow re-roofed in new red concrete tiles"></div>
         <span class="svc-num">01</span>
         <div class="svc-body">
           <div class="svc-ic"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
@@ -535,7 +548,7 @@
   <div class="wrap center">
     <span class="eyebrow">See The Difference</span>
     <h2 class="h-sec">Before and After</h2>
-    <p class="lead">Watch four recent projects go from tired to transformed. Real roofs, real results, all completed here in Derbyshire.</p>
+    <p class="lead">See three recent projects go from tired to transformed. Real roofs, real results, all completed here in Derbyshire.</p>
   </div>
   <div class="wrap">
     <div class="ba-cases">
@@ -544,14 +557,14 @@
         <div class="case-media">
           <div class="case-frame">
             <span class="case-badge">Before &rarr; After</span>
-            <video src="ba1.mp4" poster="ba1-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Before and after: storm-damaged slate roof transformed with a full re-roof"></video>
+            <video src="ba3.mp4" poster="ba3-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Before and after: roof stripped back to the rafters and fully re-tiled"></video>
           </div>
         </div>
         <div class="case-body">
-          <span class="eyebrow">Slate Re-Roof</span>
-          <h3>A tired roof made watertight again</h3>
-          <p>We stripped this worn, leaking slate roof right back, then re-covered it with new natural slate over a breathable membrane and fresh battens. The chimney was re-flashed and the ridge re-bedded, leaving a roof that's straight, smart and built to keep the weather out for decades to come.</p>
-          <span class="case-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Belper</span>
+          <span class="eyebrow">Full Re-Roof</span>
+          <h3>Stripped back and built to last</h3>
+          <p>Taken right back to the rafters and rebuilt properly: new felt, treated battens and interlocking tiles, with fresh ridge, verge and leadwork throughout. The finish is clean and uniform, sealing the whole home against the worst of the Derbyshire weather.</p>
+          <span class="case-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Matlock</span>
         </div>
       </article>
 
@@ -570,32 +583,22 @@
         </div>
       </article>
 
-      <article class="case">
+      <article class="case case--slider">
         <div class="case-media">
-          <div class="case-frame">
-            <span class="case-badge">Before &rarr; After</span>
-            <video src="ba3.mp4" poster="ba3-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Before and after: roof stripped back to the rafters and fully re-tiled"></video>
-          </div>
-        </div>
-        <div class="case-body">
-          <span class="eyebrow">Full Re-Roof</span>
-          <h3>Stripped back and built to last</h3>
-          <p>Taken right back to the rafters and rebuilt properly: new felt, treated battens and interlocking tiles, with fresh ridge, verge and leadwork throughout. The finish is clean and uniform, sealing the whole home against the worst of the Derbyshire weather.</p>
-          <span class="case-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Matlock</span>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-media">
-          <div class="case-frame">
-            <span class="case-badge">Before &rarr; After</span>
-            <video src="ba4.mp4" poster="ba4-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Before and after: full re-roof with new slate as part of a loft conversion"></video>
+          <div class="case-frame ba-slider" id="baSlider" style="--pos:50%">
+            <img class="ba-after" src="img/ba4-after.webp" alt="After: the same roof fully re-tiled with new slate-effect tiles" width="760" height="1013" loading="lazy" draggable="false">
+            <div class="ba-before"><img src="img/ba4-before.webp" alt="Before: the old roof stripped back to the rafters under scaffold" width="760" height="1013" loading="lazy" draggable="false"></div>
+            <span class="ba-tag ba-tag-b">Before</span>
+            <span class="ba-tag ba-tag-a">After</span>
+            <div class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
+            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: drag left for the after photo, right for the before">
           </div>
         </div>
         <div class="case-body">
           <span class="eyebrow">Loft Conversion Re-Roof</span>
           <h3>A new roofline for a bigger home</h3>
           <p>As part of a full loft conversion we re-roofed the entire property, with new structure, membrane and tiles bringing the whole roofline up to a modern, weatherproof standard, ready for the extra living space created below.</p>
+          <p class="ba-hint">Drag the slider to compare the before and after.</p>
           <span class="case-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Derby</span>
         </div>
       </article>
@@ -950,6 +953,48 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     });
   }, {threshold:0, rootMargin:'200px 0px 200px 0px'});
   vids.forEach(function(v){ io.observe(v); });
+})();
+
+/* ---- before and after drag slider ---- */
+(function(){
+  var s = document.getElementById('baSlider');
+  if(!s) return;
+  var range = s.querySelector('.ba-range'), dragging = false, touched = false;
+  function set(p){ p = Math.max(0, Math.min(100, p)); s.style.setProperty('--pos', p + '%'); range.value = Math.round(p); }
+  function fromX(x){ var r = s.getBoundingClientRect(); set((x - r.left) / r.width * 100); }
+  s.addEventListener('pointerdown', function(e){ if(e.pointerType !== 'mouse') return; dragging = true; touched = true; s.setPointerCapture(e.pointerId); fromX(e.clientX); });
+  s.addEventListener('pointermove', function(e){ if(dragging) fromX(e.clientX); });
+  ['pointerup','pointercancel','pointerleave'].forEach(function(t){ s.addEventListener(t, function(){ dragging = false; }); });
+  /* phones: follow a horizontal swipe without blocking vertical scroll */
+  var tx = 0, ty = 0, horiz = null;
+  s.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; ty = e.touches[0].clientY; horiz = null; touched = true; }, {passive:true});
+  s.addEventListener('touchmove', function(e){
+    var t = e.touches[0];
+    if(horiz === null) horiz = Math.abs(t.clientX - tx) > Math.abs(t.clientY - ty);
+    if(horiz){ e.preventDefault(); fromX(t.clientX); }
+  }, {passive:false});
+  range.addEventListener('input', function(){ touched = true; set(+range.value); });
+  /* a one-off nudge the first time it scrolls into view, so people see it moves */
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io = new IntersectionObserver(function(en){
+      if(!en[0].isIntersecting) return;
+      io.disconnect();
+      var steps = [50, 30, 70, 50], i = 0;
+      (function next(){ if(touched || i >= steps.length) return; s.style.transition = 'none'; animate(steps[i++], next); })();
+    }, {threshold:.6});
+    io.observe(s);
+  }
+  function animate(to, done){
+    var from = parseFloat(s.style.getPropertyValue('--pos')) || 50, t0 = null;
+    function step(t){
+      if(touched) return;
+      if(t0 === null) t0 = t;
+      var k = Math.min(1, (t - t0) / 650), e = k < .5 ? 2*k*k : 1 - Math.pow(-2*k + 2, 2) / 2;
+      set(from + (to - from) * e);
+      if(k < 1) requestAnimationFrame(step); else setTimeout(done, 120);
+    }
+    requestAnimationFrame(step);
+  }
 })();
 
 /* ---- reviews carousel: three per view on desktop, two on tablet, one on phones ---- */
