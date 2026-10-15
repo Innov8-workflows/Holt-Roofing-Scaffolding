@@ -274,6 +274,19 @@
   .about .sig{font-family:var(--display);font-weight:800;font-size:1.15rem;margin-top:8px}
   .about .sig small{display:block;font-family:var(--sans);font-weight:500;font-size:.85rem;color:var(--muted);letter-spacing:.02em}
 
+  /* ===== AREAS ===== */
+  .areas{position:relative;overflow:hidden;isolation:isolate;background:var(--ink);color:#fff}
+  .areas-bg{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center}
+  .areas-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,12,12,.94) 0%,rgba(12,12,12,.84) 45%,rgba(12,12,12,.62) 100%)}
+  .areas .h-sec{color:#fff}
+  .area-wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(26px,4.5vw,56px);align-items:center}
+  .area-lead{color:#d0d0d0;font-size:1.05rem;margin:16px 0 26px;max-width:46ch}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:100px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);font-size:.88rem;font-weight:600;color:#fff;transition:.22s}
+  .chip svg{width:15px;height:15px;color:var(--gold);flex:none}
+  .chip.core{background:#fff;border-color:#fff;color:var(--ink)}
+  .chip.core svg{color:var(--ink)}
+
   /* ===== CONTACT ===== */
   .contact{background:var(--paper-2)}
   .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:50px}
@@ -336,6 +349,8 @@
 
   /* ===== RESPONSIVE ===== */
   @media(max-width:960px){
+    .area-wrap{grid-template-columns:1fr}
+    .areas-scrim{background:rgba(12,12,12,.84)}
     .why-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:38px}
     .why-photo{aspect-ratio:16/11;max-height:380px}
     .about-photo{max-width:380px;margin:0 auto}
@@ -375,6 +390,8 @@
     .rev-card{padding:20px 18px 16px}
   }
   @media(max-width:600px){
+    .chips{gap:7px}
+    .chip{padding:9px 13px;font-size:.8rem}
     /* services stay 2-up as compact photo tiles; the sentence is dropped rather than clamped mid-word */
     .svc-grid{gap:9px;margin-top:34px}
     .svc-photo{min-height:210px;border-radius:12px}
@@ -745,6 +762,36 @@
   </div>
 </section>
 
+<!-- ===== AREAS ===== -->
+<section class="areas pad" id="areas">
+  <div class="areas-bg" style="background-image:url('img/areas.webp')" role="img" aria-label="Aerial view of a finished Holt Roofing re-roof with in-roof solar panels"></div>
+  <div class="areas-scrim"></div>
+  <div class="wrap area-wrap">
+    <div>
+      <span class="eyebrow on-dark">Where We Work</span>
+      <h2 class="h-sec">Belper and the Surrounding Areas</h2>
+      <p class="area-lead">Based in Belper and covering towns and villages across Derbyshire and into Nottinghamshire. If you're just outside the places listed, it's still worth asking.</p>
+      <a class="btn btn-light" href="#contact">Check Your Postcode <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    </div>
+    <div class="chips">
+        <span class="chip core"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Belper</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Kilburn</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ripley</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Alfreton</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Denby</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Codnor</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Heanor</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Heage</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Matlock</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ilkeston</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Derby</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Long Eaton</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Eastwood</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Kimberley</span>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CONTACT ===== -->
 <section class="contact pad" id="contact">
   <div class="wrap contact-grid">
@@ -838,6 +885,7 @@
           <li><a href="#work">Our Work</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#about">About Us</a></li>
+          <li><a href="#areas">Areas We Cover</a></li>
           <li><a href="#contact">Get a Quote</a></li>
         </ul>
       </div>
