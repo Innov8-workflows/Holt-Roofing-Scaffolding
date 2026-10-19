@@ -98,6 +98,9 @@
   .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(4px);color:#fff;font-family:var(--display);font-weight:600;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;padding:8px 15px;border-radius:50px;margin-bottom:22px}
   .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
   .hero-title{margin:0 auto;line-height:0}
+  .hero-badge{transition:background .2s}
+  @media(max-width:520px){.hero-badge .hb-region{display:none}.hero-badge{letter-spacing:.12em}}
+  .hero-badge:hover{background:rgba(255,255,255,.18)}
   .hero-logo{display:block;margin:0 auto;width:min(660px,86vw);height:auto;filter:drop-shadow(0 6px 22px rgba(0,0,0,.55))}
   .hero p.sub{color:#e7e7e7;font-size:clamp(1.02rem,2.2vw,1.22rem);margin:26px auto 32px;max-width:54ch}
   .hero-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
@@ -258,7 +261,11 @@
   .acc .wrap{position:relative;z-index:1}
   .acc .h-sec{color:#fff}
   .acc .lead{color:#bdbdbd}
-  .acc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+  .acc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+  .acc-card--award{border-color:rgba(244,180,0,.45);background:rgba(244,180,0,.07)}
+  .acc-card--award:hover{border-color:rgba(244,180,0,.75);background:rgba(244,180,0,.11)}
+  .acc-award-logo{width:190px!important;height:108px!important;object-fit:contain}
+  @media(max-width:1100px){.acc-grid{grid-template-columns:repeat(2,1fr);max-width:760px;margin-left:auto;margin-right:auto}}
   .acc-card{display:flex;flex-direction:column;align-items:center;text-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:32px 24px 26px;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);transition:transform .25s,border-color .25s,background .25s}
   .acc-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.08)}
   .acc-card img{width:108px;height:108px;object-fit:contain;margin-bottom:18px}
@@ -276,6 +283,14 @@
   .about-photo--img img{width:100%;height:100%;object-fit:cover}
   .about p{color:#3a3a3a;margin-bottom:16px;font-size:1.04rem}
   .about .sig{font-family:var(--display);font-weight:800;font-size:1.15rem;margin-top:8px}
+  .community{margin:6px 0 22px}
+  .community-label{display:block;font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .community-row{display:flex;flex-wrap:wrap;gap:10px}
+  .community-chip{display:inline-flex;align-items:center;gap:11px;background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:10px 16px 10px 12px;transition:border-color .2s,transform .2s}
+  a.community-chip:hover{border-color:#cfcfcb;transform:translateY(-2px)}
+  .community-chip svg{width:30px;height:30px;padding:6px;border-radius:8px;background:var(--ink);color:#fff;flex:none}
+  .community-chip b{display:block;font-family:var(--display);font-size:.95rem;line-height:1.2}
+  .community-chip small{display:block;font-size:.78rem;color:var(--muted)}
   .about .sig small{display:block;font-family:var(--sans);font-weight:500;font-size:.85rem;color:var(--muted);letter-spacing:.02em}
 
   /* ===== AREAS ===== */
@@ -457,6 +472,7 @@
   </div>
   <div class="hero-content">
     <div class="wrap">
+      <a class="hero-badge" href="https://mylocalawards.co.uk/businesses/holt-roofing-ltd" target="_blank" rel="noopener"><span class="dot"></span>Roofing Business of the Year 2026<span class="hb-region">, East Midlands</span></a>
       <h1 class="hero-title"><img class="hero-logo" src="logo-hero.png" alt="Holt Roofing Ltd, Experienced and Trusted Roofers in Derbyshire"></h1>
       <p class="sub">New roofs, re-roofing, repairs, flat roofs and leadwork across Derbyshire, with quality workmanship backed by years of hands-on experience.</p>
       <div class="hero-actions">
@@ -717,12 +733,19 @@
 <section class="acc pad" id="accreditations">
   <div class="acc-bg" data-bg="hero3" role="img" aria-label="Slate re-roof with dormers in Derbyshire"></div>
   <div class="wrap center">
-    <span class="eyebrow on-dark">Accreditations</span>
+    <span class="eyebrow on-dark">Awards and Accreditations</span>
     <h2 class="h-sec">Checked, Vetted and Recommended</h2>
     <p class="lead">Each badge links to our live profile, so you can read the reviews for yourself.</p>
   </div>
   <div class="wrap">
     <div class="acc-grid">
+      <a class="acc-card acc-card--award" href="https://mylocalawards.co.uk/businesses/holt-roofing-ltd" target="_blank" rel="noopener">
+        <img class="acc-award-logo" src="img/award-mla-2026.webp" alt="My Local Awards 2026 logo" width="640" height="231" loading="lazy">
+        <h3>Roofing Business of the Year</h3>
+        <div class="acc-stat">East Midlands 2026, My Local Awards</div>
+        <p>Voted for by the public: local customers named us the East Midlands Roofing Business of the Year 2026.</p>
+        <span class="acc-link">See the award <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+      </a>
       <a class="acc-card" href="https://www.checkatrade.com/trades/holtroofingltd" target="_blank" rel="noopener">
         <img src="img/badge-checkatrade.webp" alt="Checkatrade logo" width="108" height="108" loading="lazy">
         <h3>Checkatrade</h3>
@@ -757,6 +780,13 @@
       <h2 class="h-sec" style="margin-bottom:18px">The Team Behind Holt Roofing</h2>
       <p>Holt Roofing Ltd is a Derbyshire-based roofing company built on a simple idea: do the job properly, treat people fairly, and stand behind the work. From small repairs to full re-roofs and loft conversions, every job gets the same care and attention to detail.</p>
       <p>We pride ourselves on being experienced and trusted. We turn up when we say we will, keep you informed and leave your property clean and tidy. With free advice, free quotes and a 24-hour emergency call-out, help is never far away.</p>
+      <div class="community">
+        <span class="community-label">Proud to support local sport</span>
+        <div class="community-row">
+          <span class="community-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg><span><b>Prussia FC</b><small>Main sponsor, second season running</small></span></span>
+          <a class="community-chip" href="https://www.facebook.com/LangleyMillUnitedCricketClub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg><span><b>Langley Mill United Cricket Club</b><small>Club sponsor</small></span></a>
+        </div>
+      </div>
       <div class="sig">Josh Holt<br><small>Owner, Holt Roofing Ltd</small></div>
     </div>
   </div>
@@ -814,7 +844,7 @@
         </li>
       </ul>
       <div class="ci-socials">
-        <a href="https://www.instagram.com/holtroofing_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.instagram.com/holtroofing_ltd" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
         <a href="https://www.facebook.com/profile.php?id=100063897347139" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
       </div>
     </div>
@@ -874,7 +904,7 @@
         <img data-img="logo" alt="Holt Roofing Ltd">
         <p>Experienced and trusted roofing services across Derbyshire, covering new roofs, repairs, flat roofing, chimney work and more.</p>
         <div class="foot-soc">
-          <a href="https://www.instagram.com/holtroofing_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.instagram.com/holtroofing_ltd" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           <a href="https://www.facebook.com/profile.php?id=100063897347139" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
         </div>
       </div>
