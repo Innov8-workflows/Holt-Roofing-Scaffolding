@@ -392,6 +392,11 @@
   .foot-accred .al img{width:100%;height:100%;object-fit:contain}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:22px 0;font-size:.82rem;color:#777}
   .foot-bottom a{color:#999}
+  .foot-bottom a.credit{color:#d6d6d6;font-weight:600;transition:color .2s}
+  .foot-bottom a.credit:hover{color:#fff}
+  .foot-accred .aw{display:flex;align-items:center;height:54px;padding:0 6px;transition:transform .2s}
+  .foot-accred .aw:hover{transform:translateY(-2px)}
+  .foot-accred .aw img{height:44px;width:auto}
 
   /* ===== FLOATING WHATSAPP ===== */
   .wa-float{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;align-items:center;gap:0;background:var(--wa);color:#fff;border-radius:50px;padding:0;box-shadow:0 8px 24px rgba(0,0,0,.28);transition:gap .25s,padding .25s}
@@ -984,12 +989,13 @@
       </div>
     </div>
     <div class="foot-accred">
-      <span style="font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#888;margin-right:8px">Accreditations</span>
+      <span style="font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#888;margin-right:8px">Awards and Accreditations</span>
+      <a class="aw" href="https://mylocalawards.co.uk/businesses/holt-roofing-ltd" target="_blank" rel="noopener" aria-label="Roofing Business of the Year, East Midlands 2026, My Local Awards"><img src="img/award-mla-2026.webp" alt="" width="133" height="48" loading="lazy"></a>
       <a class="al" href="https://www.checkatrade.com/trades/holtroofingltd" target="_blank" rel="noopener" aria-label="Holt Roofing Ltd on Checkatrade"><img src="img/badge-checkatrade.webp" alt="" width="46" height="46" loading="lazy"></a><a class="al" href="https://www.trustatrader.com/traders/holt-roofing-ltd-roofers-roofing-derby-north-east" target="_blank" rel="noopener" aria-label="Holt Roofing Ltd on TrustATrader"><img src="img/badge-trustatrader.webp" alt="" width="46" height="46" loading="lazy"></a><a class="al" href="https://apps.derbyshire.gov.uk/applications/trusted-trader/profile.asp?tid=79947&amp;d=20&amp;p=DE556BS&amp;q=roofingtitle%20equals" target="_blank" rel="noopener" aria-label="Holt Roofing Ltd on Derbyshire County Council Trusted Trader"><img src="img/badge-trusted-trader.webp" alt="" width="46" height="46" loading="lazy"></a>
     </div>
     <div class="foot-bottom">
       <span>&copy; <span id="yr"></span> Holt Roofing Ltd. All rights reserved.</span>
-      <span>Roofing in Derbyshire · <a href="https://holtroofingltd.co.uk">holtroofingltd.co.uk</a></span>
+      <span>Website by <a class="credit" href="https://innov8workflows.co.uk/" target="_blank" rel="noopener">Innov8 Workflows</a></span>
     </div>
   </div>
 </footer>
