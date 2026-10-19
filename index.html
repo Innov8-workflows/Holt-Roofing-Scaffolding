@@ -1046,7 +1046,7 @@ document.querySelectorAll('[data-bg]').forEach(function(el){
       var base = i === 0;
       var icon = L.divIcon({ className:'', html:'<div class="' + (base ? 'pin-base' : 'pin') + '"></div>', iconSize: base ? [16,16] : [12,12] });
       var m = L.marker([t[1], t[2]], { icon:icon, keyboard:false, zIndexOffset: base ? 1000 : 0 }).addTo(map);
-      m.bindTooltip(base ? 'Belper, our base' : t[0], { direction:'top', offset:[0, base ? -12 : -8], className:'map-tip' + (base ? ' map-tip-base' : ''), permanent:base });
+      m.bindTooltip(base ? 'Belper, our base' : t[0], { direction:'top', offset:[0, base ? -12 : -8], className:'map-tip' + (base ? ' map-tip-base' : '') });
       pins[t[0]] = m;
     });
     var fit = function(){ map.invalidateSize(); map.fitBounds(TOWNS.map(function(t){ return [t[1], t[2]]; }), { paddingTopLeft:[24,44], paddingBottomRight:[24,22] }); };
