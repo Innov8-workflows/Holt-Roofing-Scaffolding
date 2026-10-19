@@ -305,6 +305,27 @@
   .chip svg{width:15px;height:15px;color:var(--gold);flex:none}
   .chip.core{background:#fff;border-color:#fff;color:var(--ink)}
   .chip.core svg{color:var(--ink)}
+  .chip[data-town]{cursor:default;transition:background .2s,border-color .2s}
+  .chip[data-town]:not(.core):hover,.chip.is-on:not(.core){background:rgba(244,180,0,.16);border-color:rgba(244,180,0,.55)}
+  /* coverage map card */
+  .map-card{margin-top:18px;border-radius:16px;overflow:hidden;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);box-shadow:0 22px 50px -26px rgba(0,0,0,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  .map-card-head{display:flex;align-items:center;gap:9px;padding:11px 15px;border-bottom:1px solid rgba(255,255,255,.1);font-size:.8rem;color:#bdbdbd}
+  .map-card-head b{font-family:var(--display);font-weight:700;color:#fff;font-size:.86rem}
+  .map-card-head small{margin-left:auto;font-size:.74rem;color:#9a9a9a;text-align:right}
+  .map-live{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(244,180,0,.22);flex:none}
+  .area-map{height:250px;background:#1b1c1d}
+  .area-map .leaflet-tile-pane{filter:invert(100%) hue-rotate(180deg) grayscale(1) brightness(.78) contrast(1.05)}
+  .area-map .leaflet-container,.area-map.leaflet-container{background:#1b1c1d;font-family:var(--sans);cursor:default}
+  #areaMap .leaflet-control-attribution{background:rgba(0,0,0,.6);color:#9a9a9a;font-size:9.5px;padding:1px 7px;border-radius:6px 0 0 0;box-shadow:none}
+  #areaMap .leaflet-control-attribution a{color:#c9c9c9}
+  .pin{width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid #141414;box-shadow:0 0 0 1px rgba(244,180,0,.45);transition:transform .2s}
+  .pin.is-on{transform:scale(1.55)}
+  .pin-base{position:relative;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid #141414;box-shadow:0 0 0 2px #fff}
+  .pin-base::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid rgba(255,255,255,.7);animation:pinPulse 2.4s ease-out infinite}
+  @keyframes pinPulse{from{transform:scale(.45);opacity:1}to{transform:scale(1.5);opacity:0}}
+  .area-map .leaflet-tooltip.map-tip{background:#141414;color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:4px 9px;font-family:var(--display);font-weight:700;font-size:.74rem;box-shadow:0 8px 20px rgba(0,0,0,.45)}
+  .area-map .leaflet-tooltip.map-tip::before{display:none}
+  .area-map .leaflet-tooltip.map-tip-base{background:#fff;color:#141414;border-color:#fff}
 
   /* ===== CONTACT ===== */
   .contact{background:var(--paper-2)}
@@ -370,6 +391,8 @@
   @media(max-width:960px){
     .area-wrap{grid-template-columns:1fr}
     .areas-scrim{background:rgba(12,12,12,.84)}
+    .area-map{height:230px}
+    .map-head-more{display:none}
     .why-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:38px}
     .why-photo{aspect-ratio:16/11;max-height:380px}
     .about-photo{max-width:380px;margin:0 auto}
@@ -425,6 +448,7 @@
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
     /* keep the hero crossfade gentle rather than a hard cut */
     .hero-clip{transition:opacity .9s ease!important}
+    .pin-base::after{animation:pinPulse 2.4s ease-out infinite!important}
   }
 </style>
 </head>
@@ -803,21 +827,27 @@
       <p class="area-lead">Based in Belper and covering towns and villages across Derbyshire and into Nottinghamshire. If you're just outside the places listed, it's still worth asking.</p>
       <a class="btn btn-light" href="#contact">Check Your Postcode <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     </div>
+    <div class="area-right">
     <div class="chips">
-        <span class="chip core"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Belper</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Kilburn</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ripley</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Alfreton</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Denby</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Codnor</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Heanor</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Heage</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Matlock</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ilkeston</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Derby</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Long Eaton</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Eastwood</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Kimberley</span>
+        <span class="chip core" data-town="Belper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Belper</span>
+        <span class="chip" data-town="Kilburn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Kilburn</span>
+        <span class="chip" data-town="Ripley"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ripley</span>
+        <span class="chip" data-town="Alfreton"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Alfreton</span>
+        <span class="chip" data-town="Denby"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Denby</span>
+        <span class="chip" data-town="Codnor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Codnor</span>
+        <span class="chip" data-town="Heanor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Heanor</span>
+        <span class="chip" data-town="Heage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Heage</span>
+        <span class="chip" data-town="Matlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Matlock</span>
+        <span class="chip" data-town="Ilkeston"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ilkeston</span>
+        <span class="chip" data-town="Derby"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Derby</span>
+        <span class="chip" data-town="Long Eaton"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Long Eaton</span>
+        <span class="chip" data-town="Eastwood"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Eastwood</span>
+        <span class="chip" data-town="Kimberley"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Kimberley</span>
+    </div>
+      <div class="map-card" id="mapCard">
+        <div class="map-card-head"><span class="map-live"></span><b>Coverage map</b><small>14 towns<span class="map-head-more"> across Derbyshire and Nottinghamshire</span></small></div>
+        <div class="area-map" id="areaMap" role="img" aria-label="Map of Belper and the 13 surrounding towns Holt Roofing covers"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -986,6 +1016,55 @@ document.querySelectorAll('[data-bg]').forEach(function(el){
       clearTimeout(t); t = setTimeout(function(){ toast.classList.remove('show'); }, 3200);
     });
   });
+})();
+
+/* ---- coverage map in Where We Work (lazy: Leaflet + OSM tiles load near the section) ---- */
+(function(){
+  var el = document.getElementById('areaMap'), card = document.getElementById('mapCard');
+  if(!el) return;
+  var TOWNS = [["Belper",53.0229,-1.4817],["Kilburn",53.0066,-1.4307],["Ripley",53.0515,-1.4026],["Alfreton",53.0973,-1.39],["Denby",53.0126,-1.4118],["Codnor",53.0425,-1.3766],["Heanor",53.0146,-1.3575],["Heage",53.0499,-1.4491],["Matlock",53.1375,-1.5545],["Ilkeston",52.9708,-1.3092],["Derby",52.9142,-1.472],["Long Eaton",52.8986,-1.2708],["Eastwood",53.0172,-1.3039],["Kimberley",52.998,-1.2595]];
+  var started = false;
+  function load(){
+    if(started) return; started = true;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet'; css.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
+    document.head.appendChild(css);
+    var s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+    s.onload = init;
+    s.onerror = function(){ card.style.display = 'none'; };
+    document.head.appendChild(s);
+  }
+  function init(){
+    var map = L.map(el, { zoomControl:false, dragging:false, scrollWheelZoom:false, doubleClickZoom:false,
+      touchZoom:false, boxZoom:false, keyboard:false, tap:false, attributionControl:true, zoomSnap:0.25 });
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:14,
+      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>' }).addTo(map);
+    map.attributionControl.setPrefix(false);
+    var pins = {};
+    TOWNS.forEach(function(t, i){
+      var base = i === 0;
+      var icon = L.divIcon({ className:'', html:'<div class="' + (base ? 'pin-base' : 'pin') + '"></div>', iconSize: base ? [16,16] : [12,12] });
+      var m = L.marker([t[1], t[2]], { icon:icon, keyboard:false, zIndexOffset: base ? 1000 : 0 }).addTo(map);
+      m.bindTooltip(base ? 'Belper, our base' : t[0], { direction:'top', offset:[0, base ? -12 : -8], className:'map-tip' + (base ? ' map-tip-base' : ''), permanent:base });
+      pins[t[0]] = m;
+    });
+    var fit = function(){ map.invalidateSize(); map.fitBounds(TOWNS.map(function(t){ return [t[1], t[2]]; }), { paddingTopLeft:[24,44], paddingBottomRight:[24,22] }); };
+    fit();
+    window.addEventListener('resize', fit);
+    document.querySelectorAll('.chip[data-town]').forEach(function(c){
+      var m = pins[c.getAttribute('data-town')];
+      if(!m || c.classList.contains('core')) return;
+      var on = function(){ c.classList.add('is-on'); var p = m.getElement() && m.getElement().querySelector('.pin'); if(p) p.classList.add('is-on'); m.openTooltip(); };
+      var off = function(){ c.classList.remove('is-on'); var p = m.getElement() && m.getElement().querySelector('.pin'); if(p) p.classList.remove('is-on'); m.closeTooltip(); };
+      c.addEventListener('mouseenter', on); c.addEventListener('mouseleave', off);
+      c.addEventListener('click', function(){ c.classList.contains('is-on') ? off() : on(); });
+    });
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(en){ if(en[0].isIntersecting){ io.disconnect(); load(); } }, { rootMargin:'600px 0px' });
+    io.observe(el);
+  } else load();
 })();
 
 /* ---- year ---- */
