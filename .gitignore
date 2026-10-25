@@ -22,3 +22,20 @@
 !hv3.mp4
 !hv1-poster.jpg
 !review/
+
+# Build-out (submission #36, 2026-10-25): published pages and their shared assets.
+# generate.js, .verify.js, the _source/ submission and every .md / .json report stay
+# OUT - they are build inputs and internal records, never served by the live site.
+!assets/
+!services/
+!our-work/
+!areas-we-cover/
+!about/
+!contact/
+!reviews/
+!faqs/
+!privacy-policy/
+!terms/
+!404.html
+!sitemap.xml
+!robots.txt
