@@ -322,7 +322,7 @@
   .chips{display:flex;flex-wrap:wrap;gap:9px}
   .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:100px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);font-size:.88rem;font-weight:600;color:#fff;transition:.22s}
   .chip svg{width:15px;height:15px;color:var(--gold);flex:none}
-  .chip.core{background:#fff;border-color:#fff;color:var(--ink)}
+  a.chip{text-decoration:none}a.chip:hover{border-color:var(--gold)}.chip.core{background:#fff;border-color:#fff;color:var(--ink)}
   .chip.core svg{color:var(--ink)}
   .chip[data-town]{cursor:default;transition:background .2s,border-color .2s}
   .chip[data-town]:not(.core):hover,.chip.is-on:not(.core){background:rgba(244,180,0,.16);border-color:rgba(244,180,0,.55)}
@@ -487,6 +487,7 @@
     .hero-clip{transition:opacity .9s ease!important}
     .pin-base::after{animation:pinPulse 2.4s ease-out infinite!important}
   }
+@media(max-width:940px){.nav-links{display:none}.nav-cta .call-pill small{display:none}.burger{display:block}}
 </style>
 </head>
 <body>
@@ -498,11 +499,12 @@
       <img data-img="logo" alt="Holt Roofing Ltd">
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#services">Services</a>
-      <a href="#work">Our Work</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="services/">Services</a>
+      <a href="our-work/">Our Work</a>
+      <a href="reviews/">Reviews</a>
+      <a href="about/">About</a>
+      <a href="areas-we-cover/">Areas We Cover</a>
+      <a href="contact/">Contact</a>
     </nav>
     <div class="nav-cta">
       <a class="call-pill" href="tel:+447908961324">
@@ -516,11 +518,12 @@
   </div>
 </header>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services">Services</a>
-  <a href="#work">Our Work</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
+  <a href="services/">Services</a>
+  <a href="our-work/">Our Work</a>
+  <a href="reviews/">Reviews</a>
+  <a href="about/">About</a>
+  <a href="areas-we-cover/">Areas We Cover</a>
+  <a href="contact/">Contact</a>
   <a class="btn btn-light" href="tel:+447908961324">Call 07908 961324</a>
 </div>
 
@@ -866,18 +869,18 @@
     </div>
     <div class="area-right">
     <div class="chips">
-        <span class="chip core" data-town="Belper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Belper</span>
+        <a class="chip core" data-town="Belper" href="areas-we-cover/belper/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Belper</a>
         <span class="chip" data-town="Kilburn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Kilburn</span>
-        <span class="chip" data-town="Ripley"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ripley</span>
+        <a class="chip" data-town="Ripley" href="areas-we-cover/ripley/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ripley</a>
         <span class="chip" data-town="Alfreton"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Alfreton</span>
         <span class="chip" data-town="Denby"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Denby</span>
         <span class="chip" data-town="Codnor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Codnor</span>
-        <span class="chip" data-town="Heanor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Heanor</span>
+        <a class="chip" data-town="Heanor" href="areas-we-cover/heanor/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Heanor</a>
         <span class="chip" data-town="Heage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Heage</span>
         <span class="chip" data-town="Matlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Matlock</span>
-        <span class="chip" data-town="Ilkeston"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ilkeston</span>
-        <span class="chip" data-town="Derby"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Derby</span>
-        <span class="chip" data-town="Long Eaton"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Long Eaton</span>
+        <a class="chip" data-town="Ilkeston" href="areas-we-cover/ilkeston/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ilkeston</a>
+        <a class="chip" data-town="Derby" href="areas-we-cover/derby/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Derby</a>
+        <a class="chip" data-town="Long Eaton" href="areas-we-cover/long-eaton/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Long Eaton</a>
         <span class="chip" data-town="Eastwood"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Eastwood</span>
         <span class="chip" data-town="Kimberley"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Kimberley</span>
     </div>
@@ -980,12 +983,12 @@
       <div>
         <h4>Quick Links</h4>
         <ul class="foot-links">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#work">Our Work</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#areas">Areas We Cover</a></li>
-          <li><a href="#contact">Get a Quote</a></li>
+          <li><a href="services/">Services</a></li>
+          <li><a href="our-work/">Our Work</a></li>
+          <li><a href="reviews/">Reviews</a></li>
+          <li><a href="about/">About Us</a></li>
+          <li><a href="areas-we-cover/">Areas We Cover</a></li>
+          <li><a href="contact/">Get a Quote</a></li>
         </ul>
       </div>
       <div>

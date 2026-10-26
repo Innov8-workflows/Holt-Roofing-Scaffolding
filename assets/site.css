@@ -248,3 +248,4 @@ footer h4{font-family:var(--display);font-weight:700;color:#fff;font-size:.82rem
 .area-map .leaflet-tooltip.map-tip{background:#141414;color:#fff;border:1px solid #141414;border-radius:8px;padding:4px 9px;font-family:var(--display);font-weight:700;font-size:12px;box-shadow:0 8px 18px rgba(0,0,0,.25)}
 .area-map .leaflet-tooltip.map-tip::before{display:none}
 @media(prefers-reduced-motion:reduce){.map-base::after{animation:mapPulse 2.4s ease-out infinite!important}}
+@media(max-width:940px){.nav-links{display:none}.nav-cta .call-pill small{display:none}.burger{display:block}}
