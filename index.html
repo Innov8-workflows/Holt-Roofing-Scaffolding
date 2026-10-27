@@ -564,6 +564,7 @@
     <video class="hero-clip top" src="hv1.mp4" poster="hv1-poster.jpg" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
     <video class="hero-clip" src="hv2.mp4" muted playsinline preload="metadata" aria-hidden="true"></video>
     <video class="hero-clip" src="hv3.mp4" muted playsinline preload="metadata" aria-hidden="true"></video>
+    <video class="hero-clip" src="hv4.mp4" muted playsinline preload="metadata" aria-hidden="true"></video>
   </div>
   <div class="hero-content">
     <div class="wrap">
@@ -1201,7 +1202,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ m.classList.remove('open'); b.setAttribute('aria-expanded', false); }); });
 })();
 
-/* ---- hero: hv1 > hv2 (orbital) > hv3 > back to hv1, each crossfading into the next ---- */
+/* ---- hero: hv1 > hv2 (orbital) > hv3 > hv4 (drone orbit) > back to hv1, each crossfading into the next ---- */
 (function(){
   var clips = Array.prototype.slice.call(document.querySelectorAll('#heroMedia .hero-clip'));
   if(!clips.length) return;
@@ -1211,7 +1212,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   function play(v){ v.muted = true; var p = v.play(); if(p && p.catch) p.catch(function(){}); }
   clips.forEach(function(v){ v.muted = true; });
   play(clips[0]);
-  /* fetch the other clips once the first is under way, so a phone does not decode all three at first paint */
+  /* fetch the other clips once the first is under way, so a phone does not decode them all at first paint */
   clips[0].addEventListener('playing', function(){ clips.forEach(function(v){ if(v.preload !== 'auto'){ v.preload = 'auto'; v.load(); } }); }, {once:true});
   function next(){
     fading = true;
