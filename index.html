@@ -1245,7 +1245,6 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     if(horiz){ e.preventDefault(); fromX(t.clientX); }
   }, {passive:false});
   range.addEventListener('input', function(){ touched = true; set(+range.value); });
-  /* a one-off nudge the first time it scrolls into view, so people see it moves */
   if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
     var io = new IntersectionObserver(function(en){
       if(!en[0].isIntersecting) return;
