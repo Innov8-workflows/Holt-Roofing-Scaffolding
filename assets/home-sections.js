@@ -36,7 +36,6 @@ if(document.querySelector("#baSlider")){
     if(horiz){ e.preventDefault(); fromX(t.clientX); }
   }, {passive:false});
   range.addEventListener('input', function(){ touched = true; set(+range.value); });
-  
   if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
     var io = new IntersectionObserver(function(en){
       if(!en[0].isIntersecting) return;
