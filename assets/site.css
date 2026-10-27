@@ -286,6 +286,26 @@ footer h4{font-family:var(--display);font-weight:700;color:#fff;font-size:.82rem
 .faq-ask p{color:#cfcfcf;max-width:44ch}
 .faq-ask-btns{display:flex;gap:12px;flex-wrap:wrap}
 .faq-ask .btn-primary{background:#fff;color:var(--ink)}
+.story-jobs.no-photos{grid-template-columns:1fr 1fr}
+.story-review{margin:30px 0 0;padding:26px 30px;border-radius:16px;background:var(--ink);color:#fff}
+.story-review p{font-size:1.08rem;line-height:1.65;font-style:italic}
+.story-review cite{display:block;margin-top:12px;font-style:normal;font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+@media(max-width:760px){.story-jobs.no-photos{grid-template-columns:1fr}.story-review{padding:22px}}
+/* svc pages */
+.svc-steps-h{font-family:var(--display);font-size:1.15rem;font-weight:800;text-transform:uppercase;margin:26px 0 12px}
+.svc-steps{list-style:none;counter-reset:st;display:grid;gap:10px}
+.svc-steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:10px;color:#3a3a3a;line-height:1.6}
+.svc-steps li::before{content:counter(st,decimal-leading-zero);font-family:var(--display);font-weight:800;color:var(--gold);padding-top:1px}
+.svc-jobs{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:28px}
+.svc-job{grid-column:span 2;display:flex;flex-direction:column;padding:22px;border:1px solid var(--line);border-radius:16px;background:#fff}
+@media(min-width:961px){.svc-job:nth-child(3n+1):nth-last-child(2),.svc-job:nth-child(3n+2):last-child{grid-column:span 3}.svc-job:nth-child(3n+1):last-child{grid-column:1 / -1}}
+.svc-job h3{font-family:var(--display);font-size:1.1rem;font-weight:800;margin-bottom:8px}
+.svc-job p{color:#3a3a3a;line-height:1.65;flex:1}
+.svc-job-town{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:var(--display);font-weight:700;font-size:.88rem;border-bottom:1.5px solid var(--ink);align-self:flex-start;padding-bottom:2px}
+.svc-job-town svg{width:14px;height:14px}
+@media(max-width:960px){.svc-jobs{grid-template-columns:1fr 1fr}.svc-jobs .svc-job{grid-column:auto}.svc-jobs .svc-job:nth-child(odd):last-child{grid-column:1 / -1}}
+@media(max-width:600px){.svc-jobs{grid-template-columns:1fr}.svc-jobs .svc-job:nth-child(odd):last-child{grid-column:auto}}
+/* /svc pages */
 /* nav dropdown */
   .nav-drop{position:relative;display:flex;align-items:center;height:100%}
   .nav-drop>a{display:inline-flex;align-items:center;gap:5px}
