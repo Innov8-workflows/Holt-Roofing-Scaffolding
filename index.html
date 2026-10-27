@@ -76,6 +76,24 @@
   .nav-links{display:flex;align-items:center;gap:30px;margin-left:auto}
   .nav-links a{font-family:var(--display);font-weight:600;font-size:.92rem;color:#dcdcdc;letter-spacing:.02em;transition:color .2s}
   .nav-links a:hover{color:#fff}
+  /* nav dropdown */
+  .nav-drop{position:relative;display:flex;align-items:center;height:100%}
+  .nav-drop>a{display:inline-flex;align-items:center;gap:5px}
+  .nav-drop>a svg{width:14px;height:14px;transition:transform .2s}
+  .nav-sub{position:absolute;top:calc(100% + 12px);left:-16px;min-width:250px;display:flex;flex-direction:column;gap:2px;padding:8px;background:var(--ink-2);border:1px solid var(--line-dark);border-radius:12px;box-shadow:0 24px 50px -20px rgba(0,0,0,.7);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease .25s,transform .18s ease .25s,visibility 0s linear .43s;z-index:70}
+  .nav-sub::before{content:"";position:absolute;left:0;right:0;top:-11px;height:11px}
+  .nav-links .nav-sub a{padding:11px 14px;border-radius:8px;white-space:nowrap}
+  .nav-links .nav-sub a:hover,.nav-links .nav-sub a.on{background:rgba(255,255,255,.07);color:#fff}
+  .nav-drop:hover .nav-sub,.nav-drop:focus-within .nav-sub{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+  .nav-drop:hover>a svg,.nav-drop:focus-within>a svg{transform:rotate(180deg)}
+  @media(prefers-reduced-motion:reduce) and (min-width:941px){
+    .nav-sub{transform:none!important;transition:opacity 0s linear .25s,visibility 0s linear .25s!important}
+    .nav-drop:hover .nav-sub,.nav-drop:focus-within .nav-sub{transition-delay:0s!important}
+  }
+  .nav-links>a,.nav-drop>a{white-space:nowrap}
+  @media(max-width:1060px){.nav-links{gap:20px}}
+  .mobile-menu a.mm-sub{font-size:1rem;color:#bdbdbd;padding:10px 0 12px 18px;text-transform:none;letter-spacing:.02em}
+  /* /nav dropdown */
   .nav-cta{display:flex;align-items:center;gap:12px}
   .call-pill{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--ink);font-family:var(--display);font-weight:700;font-size:.95rem;padding:11px 18px;border-radius:8px;transition:transform .15s,background .2s}
   .call-pill:hover{background:var(--paper-2)}
@@ -502,7 +520,13 @@
       <a href="roofing-services-in-derbyshire/">Services</a>
       <a href="roofing-projects-in-derbyshire/">Our Work</a>
       <a href="reviews/">Reviews</a>
-      <a href="about-us/">About</a>
+      <div class="nav-drop">
+        <a href="about-us/">About <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+        <div class="nav-sub">
+          <a href="about-us/">About Us</a>
+          <a href="awards/">Awards and Accreditations</a>
+        </div>
+      </div>
       <a href="areas-we-cover/">Areas We Cover</a>
       <a href="faqs/">FAQs</a>
       <a href="contact-holt-roofing-ltd/">Contact</a>
@@ -523,6 +547,7 @@
   <a href="roofing-projects-in-derbyshire/">Our Work</a>
   <a href="reviews/">Reviews</a>
   <a href="about-us/">About</a>
+  <a href="awards/" class="mm-sub">Awards</a>
   <a href="areas-we-cover/">Areas We Cover</a>
   <a href="faqs/">FAQs</a>
   <a href="contact-holt-roofing-ltd/">Contact</a>
