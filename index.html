@@ -883,9 +883,13 @@
         <a class="chip" data-town="Long Eaton" href="areas-we-cover/long-eaton/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Long Eaton</a>
         <span class="chip" data-town="Eastwood"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Eastwood</span>
         <span class="chip" data-town="Kimberley"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Kimberley</span>
+        <a class="chip" data-town="Smalley" href="areas-we-cover/smalley/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Smalley</a>
+        <a class="chip" data-town="Langley Mill" href="areas-we-cover/langley-mill/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Langley Mill</a>
+        <a class="chip" data-town="Loscoe" href="areas-we-cover/loscoe/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Loscoe</a>
+        <a class="chip" data-town="Leicester" href="areas-we-cover/leicester/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Leicester</a>
     </div>
       <div class="map-card" id="mapCard">
-        <div class="map-card-head"><span class="map-live"></span><b>Coverage map</b><small>14 towns<span class="map-head-more"> across Derbyshire and Nottinghamshire</span></small></div>
+        <div class="map-card-head"><span class="map-live"></span><b>Coverage map</b><small>17 towns<span class="map-head-more"> around Belper</span></small></div>
         <div class="area-map" id="areaMap" role="img" aria-label="Map of Belper and the 13 surrounding towns Holt Roofing covers"></div>
       </div>
     </div>
@@ -1065,7 +1069,7 @@ document.querySelectorAll('[data-bg]').forEach(function(el){
 (function(){
   var el = document.getElementById('areaMap'), card = document.getElementById('mapCard');
   if(!el) return;
-  var TOWNS = [["Belper",53.0229,-1.4817],["Kilburn",53.0066,-1.4307],["Ripley",53.0515,-1.4026],["Alfreton",53.0973,-1.39],["Denby",53.0126,-1.4118],["Codnor",53.0425,-1.3766],["Heanor",53.0146,-1.3575],["Heage",53.0499,-1.4491],["Matlock",53.1375,-1.5545],["Ilkeston",52.9708,-1.3092],["Derby",52.9142,-1.472],["Long Eaton",52.8986,-1.2708],["Eastwood",53.0172,-1.3039],["Kimberley",52.998,-1.2595]];
+  var TOWNS = [["Belper",53.0229,-1.4817],["Kilburn",53.0066,-1.4307],["Ripley",53.0515,-1.4026],["Alfreton",53.0973,-1.39],["Denby",53.0126,-1.4118],["Codnor",53.0425,-1.3766],["Heanor",53.0146,-1.3575],["Heage",53.0499,-1.4491],["Matlock",53.1375,-1.5545],["Ilkeston",52.9708,-1.3092],["Derby",52.9142,-1.472],["Long Eaton",52.8986,-1.2708],["Eastwood",53.0172,-1.3039],["Kimberley",52.998,-1.2595],["Smalley",52.9976,-1.3928],["Langley Mill",53.0206,-1.3357],["Loscoe",53.0279,-1.3724]];
   var started = false;
   function load(){
     if(started) return; started = true;

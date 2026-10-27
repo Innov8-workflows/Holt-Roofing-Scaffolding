@@ -1,6 +1,7 @@
 
 document.querySelectorAll('.yr').forEach(function(e){ e.textContent = new Date().getFullYear(); });
 
+
 (function(){
   var b = document.getElementById('burger'), m = document.getElementById('mobileMenu');
   if(!b || !m) return;
@@ -10,6 +11,7 @@ document.querySelectorAll('.yr').forEach(function(e){ e.textContent = new Date()
   });
   m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ m.classList.remove('open'); b.setAttribute('aria-expanded', false); }); });
 })();
+
 
 (function(){
   var grid = document.getElementById('owGrid');
@@ -33,6 +35,7 @@ document.querySelectorAll('.yr').forEach(function(e){ e.textContent = new Date()
   });
 })();
 
+
 (function(){
   var btn = document.getElementById('cfSend');
   if(!btn) return;
@@ -50,10 +53,11 @@ document.querySelectorAll('.yr').forEach(function(e){ e.textContent = new Date()
   });
 })();
 
+
 (function(){
   var el = document.getElementById('areaMap'), card = document.getElementById('mapCard');
   if(!el) return;
-  var TOWNS = [["Belper",53.0229,-1.4817],["Kilburn",53.0066,-1.4307],["Ripley",53.0515,-1.4026],["Alfreton",53.0973,-1.39],["Denby",53.0126,-1.4118],["Codnor",53.0425,-1.3766],["Heanor",53.0146,-1.3575],["Heage",53.0499,-1.4491],["Matlock",53.1375,-1.5545],["Ilkeston",52.9708,-1.3092],["Derby",52.9142,-1.472],["Long Eaton",52.8986,-1.2708],["Eastwood",53.0172,-1.3039],["Kimberley",52.998,-1.2595]];
+  var TOWNS = [["Belper",53.0229,-1.4817],["Kilburn",53.0066,-1.4307],["Ripley",53.0515,-1.4026],["Alfreton",53.0973,-1.39],["Denby",53.0126,-1.4118],["Codnor",53.0425,-1.3766],["Heanor",53.0146,-1.3575],["Heage",53.0499,-1.4491],["Matlock",53.1375,-1.5545],["Ilkeston",52.9708,-1.3092],["Derby",52.9142,-1.472],["Long Eaton",52.8986,-1.2708],["Eastwood",53.0172,-1.3039],["Kimberley",52.998,-1.2595],["Smalley",52.9976,-1.3928],["Langley Mill",53.0206,-1.3357],["Loscoe",53.0279,-1.3724]];
   var started = false;
   function load(){
     if(started) return; started = true;
