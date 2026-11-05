@@ -37,19 +37,25 @@ document.querySelectorAll('.yr').forEach(function(e){ e.textContent = new Date()
 
 
 (function(){
-  var btn = document.getElementById('cfSend');
-  if(!btn) return;
-  btn.addEventListener('click', function(){
-    var name = (document.getElementById('cf-name') || {}).value || '';
-    var phone = (document.getElementById('cf-phone') || {}).value || '';
-    var service = (document.getElementById('cf-service') || {}).value || '';
-    var msg = (document.getElementById('cf-msg') || {}).value || '';
-    var lines = ['Hi Josh, I found you on your website and would like a free quote.'];
-    if(name) lines.push('Name: ' + name);
-    if(phone) lines.push('Phone: ' + phone);
-    if(service) lines.push('Service: ' + service);
-    if(msg) lines.push('Details: ' + msg);
-    window.open('https://wa.me/447908961324?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+  var f = document.getElementById('quoteForm');
+  if(!f || !window.fetch) return;
+  var btn = document.getElementById('cfSend'), st = document.getElementById('qfStatus'), label = btn.innerHTML;
+  function say(ok, text){ st.textContent = text; st.style.color = ok ? '#1a7f37' : '#b42318'; }
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(f.botcheck && f.botcheck.checked) return;
+    var data = {};
+    for(var i = 0; i < f.elements.length; i++){ var el = f.elements[i]; if(el.name && el.type !== 'checkbox') data[el.name] = el.value; }
+    btn.disabled = true; btn.textContent = 'Sending...'; st.textContent = '';
+    fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if(!j || !j.success) throw new Error((j && j.message) || 'not sent');
+        f.reset();
+        say(true, 'Thanks, your message has been sent. We will be in touch soon.');
+      })
+      .catch(function(){ say(false, 'Sorry, that did not send. Please try again or call us on 07908 961324.'); })
+      .then(function(){ btn.disabled = false; btn.innerHTML = label; });
   });
 })();
 
