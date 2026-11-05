@@ -53,6 +53,7 @@ document.querySelectorAll('.yr').forEach(function(e){ e.textContent = new Date()
         if(!j || !j.success) throw new Error((j && j.message) || 'not sent');
         f.reset();
         say(true, 'Thanks, your message has been sent. We will be in touch soon.');
+        if(window.gtag) window.gtag('event', 'generate_lead', { form_id: 'quoteForm', page_path: location.pathname });
       })
       .catch(function(){ say(false, 'Sorry, that did not send. Please try again or call us on 07908 961324.'); })
       .then(function(){ btn.disabled = false; btn.innerHTML = label; });
